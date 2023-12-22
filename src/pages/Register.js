@@ -54,7 +54,7 @@ function Register() {
 
             <div class="flex flex-row gap-2">
               <span>Have an existing account?</span>
-              <a href="/login" class="font-bold">
+              <a href="/" class="font-bold">
                 Login
               </a>
             </div>

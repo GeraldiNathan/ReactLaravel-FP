@@ -41,7 +41,12 @@ function Login() {
                 </svg>
               </div>
 
-              <button class="bg-teal-500 rounded-xl text-white py-2 hover:scale-105 duration-300">
+              <button
+                class="bg-teal-500 rounded-xl text-white py-2 hover:scale-105 duration-300"
+                onClick={() => {
+                  navigate("/");
+                }}
+              >
                 Login
               </button>
             </form>

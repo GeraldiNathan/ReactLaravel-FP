@@ -20,7 +20,7 @@ function Navbar() {
           Add Product
         </a>
         <a
-          href="/home"
+          href="/update"
           className="text-xl no-underline text-gray-600 hover:text-teal-500 font-bold"
         >
           Update Product

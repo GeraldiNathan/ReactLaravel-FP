@@ -14,13 +14,13 @@ function Navbar() {
 
       <div className="flex gap-6 justify-center items-center sm:mx-auto">
         <a
-          href="/add"
+          href="/addproduct"
           className="text-xl no-underline text-gray-600 hover:text-teal-500 font-bold"
         >
           Add Product
         </a>
         <a
-          href="/update"
+          href="/updateproduct"
           className="text-xl no-underline text-gray-600 hover:text-teal-500 font-bold"
         >
           Update Product

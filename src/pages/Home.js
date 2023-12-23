@@ -16,19 +16,19 @@ function Home() {
 
         <div className="flex gap-6 justify-center items-center sm:mx-auto">
           <a
-            href="#"
+            href="/home"
             className="text-xl no-underline text-gray-600 hover:text-teal-500 font-bold"
           >
             Dashboard
           </a>
           <a
-            href="#"
+            href="/register"
             className="text-xl no-underline text-gray-600 hover:text-teal-500 font-bold"
           >
             Register
           </a>
           <a
-            href="#"
+            href="/"
             className="text-xl no-underline text-gray-600 hover:text-teal-500 font-bold"
           >
             Login

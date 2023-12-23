@@ -1,40 +1,66 @@
-import React from "react";
+import React, { useState } from "react";
 
 function Register() {
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+
+  async function signUp() {
+    let item = { name, password, email };
+    console.warn(item);
+
+    let result = await fetch("http://127.0.0.1:8000/api/register", {
+      method: "POST",
+      body: JSON.stringify(item),
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    });
+    result = await result.json();
+    console.warn(result);
+  }
+
   return (
     <div>
-      <section class="bg-gray-100 min-h-screen flex items-center  justify-center">
+      <section className="bg-gray-100 min-h-screen flex items-center  justify-center">
         {/* Register Container */}
-        <div class="bg-gray-300 flex rounded-2xl shadow-lg max-w-4xl px-8">
-          <form class="flex flex-col items gap-4 m-12 ">
-            <span class="flex justify-center font-bold text-teal-500 text-3xl">
+        <div className="bg-gray-300 flex rounded-2xl shadow-lg max-w-4xl px-8">
+          <form className="flex flex-col items gap-4 m-12 ">
+            <span className="flex justify-center font-bold text-teal-500 text-3xl">
               Register
             </span>
             <input
               type="text"
               name="name"
               placeholder="Full Name"
-              class="p-2 mt-8 rounded-xl border"
+              className="p-2 mt-8 rounded-xl border"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
             <input
               type="text"
               name="email"
               placeholder="Email Address"
-              class="p-2 rounded-xl border"
+              className="p-2 rounded-xl border"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
-            <div class="relative">
+            <div className="relative">
               <input
                 type="password"
                 name="password"
                 placeholder="Password"
-                class="p-2 rounded-xl border w-full"
+                className="p-2 rounded-xl border w-full"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
                 height="16"
                 fill="gray"
-                class="bi bi-eye absolute top-1/2 right-3 -translate-y-1/2"
+                className="bi bi-eye absolute top-1/2 right-3 -translate-y-1/2"
                 viewBox="0 0 16 16"
               >
                 <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
@@ -42,19 +68,22 @@ function Register() {
               </svg>
             </div>
 
-            <button class="bg-teal-500 rounded-xl text-white py-2 hover:scale-105 duration-300">
+            <button
+              className="bg-teal-500 rounded-xl text-white py-2 hover:scale-105 duration-300"
+              onClick={signUp}
+            >
               Register
             </button>
 
-            <div class="mt-6 grid grid-cols-3 items-center text-black">
-              <hr class="border-black"></hr>
-              <p class="text-center text-sm">OR</p>
-              <hr class="border-black"></hr>
+            <div className="mt-6 grid grid-cols-3 items-center text-black">
+              <hr className="border-black"></hr>
+              <p className="text-center text-sm">OR</p>
+              <hr className="border-black"></hr>
             </div>
 
-            <div class="flex flex-row gap-2">
+            <div className="flex flex-row gap-2">
               <span>Have an existing account?</span>
-              <a href="/" class="font-bold">
+              <a href="/" className="font-bold">
                 Login
               </a>
             </div>

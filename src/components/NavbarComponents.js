@@ -1,5 +1,4 @@
 import React from "react";
-import Dropdown from "./DropdownComponents";
 
 function Navbar() {
   return (
@@ -14,45 +13,41 @@ function Navbar() {
       </div>
 
       <div className="flex gap-6 justify-center items-center sm:mx-auto">
-        {
-          localStorage.getItem('user-info') ?
+        {localStorage.getItem("user-info") ? (
           <>
-          <a
-          href="/addproduct"
-          className="text-xl no-underline text-gray-600 hover:text-teal-500 font-bold"
-        >
-          Add Product
-        </a>
-        <a
-          href="/updateproduct"
-          className="text-xl no-underline text-gray-600 hover:text-teal-500 font-bold"
-        >
-          Update Product
-        </a>
+            <a
+              href="/addproduct"
+              className="text-xl no-underline text-gray-600 hover:text-teal-500 font-bold"
+            >
+              Add Product
+            </a>
+            <a
+              href="/updateproduct"
+              className="text-xl no-underline text-gray-600 hover:text-teal-500 font-bold"
+            >
+              Update Product
+            </a>
           </>
-          :
+        ) : (
           <>
-        <a
-          href="/register"
-          className="text-xl no-underline text-gray-600 hover:text-teal-500 font-bold"
-        >
-          Register
-        </a>
-        <a
-          href="/"
-          className="text-xl no-underline text-gray-600 hover:text-teal-500 font-bold"
-        >
-          Login
-        </a>
+            <a
+              href="/register"
+              className="text-xl no-underline text-gray-600 hover:text-teal-500 font-bold"
+            >
+              Register
+            </a>
+            <a
+              href="/"
+              className="text-xl no-underline text-gray-600 hover:text-teal-500 font-bold"
+            >
+              Login
+            </a>
           </>
-        }
-        
+        )}
       </div>
 
       {/* Profile */}
-      <div> 
-        <Dropdown />
-      </div>
+      <div>ini geraldi</div>
       {/* Profile */}
     </nav>
   );

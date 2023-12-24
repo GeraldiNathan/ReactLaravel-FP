@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/NavbarComponents";
-// import imgCode from "src/Assets/img/code.jpg";
 
 function Login() {
   const navigate = useNavigate();
+  useEffect(() => {
+    if (localStorage.getItem("user-info")) {
+      navigate("/addproduct");
+    }
+  }, []);
 
   return (
     <>

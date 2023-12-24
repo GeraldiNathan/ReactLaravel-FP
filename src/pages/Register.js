@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/NavbarComponents";
 
 function Register() {
+  useEffect(() => {
+    if (localStorage.getItem("user-info")) {
+      navigate("/addproduct");
+    }
+  }, []);
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");

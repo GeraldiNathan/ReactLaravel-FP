@@ -13,30 +13,37 @@ function Navbar() {
       </div>
 
       <div className="flex gap-6 justify-center items-center sm:mx-auto">
-        <a
-          href="/addproduct"
-          className="text-xl no-underline text-gray-600 hover:text-teal-500 font-bold"
-        >
-          Add Product
-        </a>
-        <a
-          href="/updateproduct"
-          className="text-xl no-underline text-gray-600 hover:text-teal-500 font-bold"
-        >
-          Update Product
-        </a>
-        <a
-          href="/register"
-          className="text-xl no-underline text-gray-600 hover:text-teal-500 font-bold"
-        >
-          Register
-        </a>
-        <a
-          href="/"
-          className="text-xl no-underline text-gray-600 hover:text-teal-500 font-bold"
-        >
-          Login
-        </a>
+        {localStorage.getItem("user-info") ? (
+          <>
+            <a
+              href="/addproduct"
+              className="text-xl no-underline text-gray-600 hover:text-teal-500 font-bold"
+            >
+              Add Product
+            </a>
+            <a
+              href="/updateproduct"
+              className="text-xl no-underline text-gray-600 hover:text-teal-500 font-bold"
+            >
+              Update Product
+            </a>
+          </>
+        ) : (
+          <>
+            <a
+              href="/register"
+              className="text-xl no-underline text-gray-600 hover:text-teal-500 font-bold"
+            >
+              Register
+            </a>
+            <a
+              href="/"
+              className="text-xl no-underline text-gray-600 hover:text-teal-500 font-bold"
+            >
+              Login
+            </a>
+          </>
+        )}
       </div>
 
       {/* Profile */}

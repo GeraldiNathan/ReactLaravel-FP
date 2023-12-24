@@ -1,27 +1,40 @@
 import React, { useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../components/NavbarComponents";
 
 function Register() {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
-  async function signUp() {
-    let item = { name, password, email };
-    console.warn(item);
+  async function signUp(event) {
+    event.preventDefault();
 
-    let result = await fetch("http://127.0.0.1:8000/api/register", {
-      method: "POST",
-      body: JSON.stringify(item),
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    });
-    result = await result.json();
-    console.warn(result);
+    try {
+      let item = { name, password, email };
+      console.warn(item);
+
+      let result = await fetch("http://127.0.0.1:8000/api/register", {
+        method: "POST",
+        body: JSON.stringify(item),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      });
+
+      if (!result.ok) {
+        throw new Error(`Kesalahan HTTP! Status: ${result.status}`);
+      }
+
+      result = await result.json();
+      console.warn("result", result);
+
+      navigate("/home");
+    } catch (error) {
+      console.error("Kesalahan selama registrasi:", error);
+    }
   }
 
   return (
@@ -31,7 +44,7 @@ function Register() {
         <section className="bg-gray-100 min-h-screen flex items-center  justify-center">
           {/* Register Container */}
           <div className="bg-gray-300 flex rounded-2xl shadow-lg max-w-4xl px-8">
-            <form className="flex flex-col items gap-4 m-12 ">
+            <form className="flex flex-col items gap-4 m-12 " onSubmit={signUp}>
               <span className="flex justify-center font-bold text-teal-500 text-3xl">
                 Register
               </span>
@@ -75,7 +88,8 @@ function Register() {
 
               <button
                 className="bg-teal-500 rounded-xl text-white py-2 hover:scale-105 duration-300"
-                onClick={signUp}
+                // onClick={signUp}
+                type="submit"
               >
                 Register
               </button>

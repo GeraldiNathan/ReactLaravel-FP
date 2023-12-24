@@ -29,7 +29,8 @@ function Register() {
       }
 
       result = await result.json();
-      console.warn("result", result);
+      // console.warn("result", result);
+      localStorage.setItem("user-info", JSON.stringify(result));
 
       navigate("/home");
     } catch (error) {

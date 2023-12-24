@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
@@ -6,6 +7,20 @@ function Navbar() {
   const toggleProfileDropdown = () => {
     setIsProfileOpen(!isProfileOpen);
   };
+
+  let user = JSON.parse(localStorage.getItem("user-info"));
+  console.warn(user);
+
+  let userName = user ? user.name : "Guest";
+
+  // Logout
+
+  const navigate = useNavigate();
+  function Logout() {
+    localStorage.clear();
+    navigate("/");
+  }
+  // Logout
 
   return (
     <nav className="flex flex-col sm:flex-row sm:text-left sm:justify-between p-4 bg-white sm:items-baseline w-full shadow-xl">
@@ -63,7 +78,7 @@ function Navbar() {
             aria-haspopup="true"
             aria-expanded="true"
           >
-            User Profile
+            <span>{userName}</span>
             <svg
               className="-mr-1 ml-2 h-5 w-5"
               xmlns="http://www.w3.org/2000/svg"
@@ -107,6 +122,7 @@ function Navbar() {
                 href="#"
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                 role="menuitem"
+                onClick={Logout}
               >
                 Sign out
               </a>

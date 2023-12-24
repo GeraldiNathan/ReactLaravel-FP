@@ -1,0 +1,19 @@
+
+#navbar {
+    height: 65px;
+    background-color: #FFF9EF;
+}
+
+#logo {
+    padding-left: 100px;
+}
+
+#nav{
+    padding-right: 100px;
+}
+
+#login-btn {
+    width: 90px;
+    height: 30px;
+    background-color: #FBC61F;
+}

@@ -4,11 +4,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        ijo: "#408F65",
+        hijau: "#408F65",
         kuning: "#FFE077",
-        oren: "#F98A5D",
-        krem: "#FFF9EF",
+        orange: "#F98A5D",
+        cream: "#FFF9EF",
         primary: "#FBC61F",
+        backgroundcolor: "#FFF9EF",
       },
     },
   },

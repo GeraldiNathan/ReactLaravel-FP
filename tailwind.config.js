@@ -9,6 +9,7 @@ module.exports = {
         oren: "#F98A5D",
         krem: "#FFF9EF",
         primary: "#FBC61F",
+        navcolor: "#fef9f0",
       },
     },
   },

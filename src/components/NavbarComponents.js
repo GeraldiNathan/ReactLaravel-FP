@@ -23,7 +23,7 @@ function Navbar() {
 
   return (
     <div className="relative">
-      <nav className=" flex flex-col sm:flex-row sm:text-left sm:justify-between p-4 bg-white sm:items-baseline w-full shadow-xl ">
+      <nav className=" flex flex-col sm:flex-row sm:text-left sm:justify-between p-4 bg-krem sm:items-baseline w-full shadow-xl ">
         <div className="mb-2 sm:mb-0">
           <a
             href="#"
@@ -37,6 +37,12 @@ function Navbar() {
           {localStorage.getItem("user-info") ? (
             <>
               <a
+                href="/updateproduct"
+                className="text-xl no-underline text-gray-600 hover:text-teal-500 font-bold"
+              >
+                Categories
+              </a>
+              <a
                 href="/addproduct"
                 className="text-xl no-underline text-gray-600 hover:text-teal-500 font-bold"
               >
@@ -47,6 +53,12 @@ function Navbar() {
                 className="text-xl no-underline text-gray-600 hover:text-teal-500 font-bold"
               >
                 Update Product
+              </a>
+              <a
+                href="/updateproduct"
+                className="text-xl no-underline text-gray-600 hover:text-teal-500 font-bold"
+              >
+                Features
               </a>
             </>
           ) : (

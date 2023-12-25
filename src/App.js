@@ -4,7 +4,9 @@ import Register from "./pages/Register";
 import Home from "./pages/Home";
 import AddProduct from "./pages/AddProduct";
 import UpdateProduct from "./pages/UpdateProduct";
+import Profile from "./pages/ProfilePage";
 import Protected from "./Protected";
+
 
 function App() {
   return (
@@ -16,10 +18,8 @@ function App() {
         {/* <Route path="/addproduct" element={<AddProduct />} /> */}
         {/* <Route path="/updateproduct" element={<UpdateProduct />} /> */}
         <Route path="/addproduct" element={<Protected Cmp={AddProduct} />} />
-        <Route
-          path="/updateproduct"
-          element={<Protected Cmp={UpdateProduct} />}
-        />
+        <Route path="/updateproduct" element={<Protected Cmp={UpdateProduct} />} />
+        <Route path="/profile" element={<Protected Cmp={Profile} />} />
       </Routes>
     </div>
   );

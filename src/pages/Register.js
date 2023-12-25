@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../components/NavbarComponents";
 
 function Register() {
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const navigate = useNavigate();
+
   useEffect(() => {
     if (localStorage.getItem("user-info")) {
       navigate("/addproduct");
     }
   }, []);
-  const [name, setName] = useState("");
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
-  const navigate = useNavigate();
 
   async function signUp(event) {
     event.preventDefault();
@@ -45,7 +45,7 @@ function Register() {
 
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <div>
         <section className="bg-gray-100 min-h-screen flex items-center  justify-center">
           {/* Register Container */}

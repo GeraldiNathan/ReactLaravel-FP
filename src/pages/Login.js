@@ -109,7 +109,7 @@ function Login() {
                 <span className="">Don't have any account?</span>
                 <button
                   className="py-2 px-5 bg-white border rounded-xl hover:scale-110 duration-300"
-                  type="submit"
+                  onClick={() => navigate("/register")}
                 >
                   Register
                 </button>

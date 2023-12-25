@@ -1,18 +1,51 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/NavbarComponents";
+import SafarImage from "../Assets/img/safar.jpg";
 
 function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
+
   useEffect(() => {
     if (localStorage.getItem("user-info")) {
       navigate("/addproduct");
     }
   }, []);
 
+  async function login(event) {
+    event.preventDefault();
+
+    try {
+      console.warn(email, password);
+      let item = { email, password };
+
+      let result = await fetch("http://127.0.0.1:8000/api/login", {
+        method: "POST",
+        body: JSON.stringify(item),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+      });
+
+      if (!result.ok) {
+        throw new Error(`Kesalahan HTTP! Status: ${result.status}`);
+      }
+
+      result = await result.json();
+      localStorage.setItem("user-info", JSON.stringify(result));
+
+      navigate("/home");
+    } catch (error) {
+      console.error("kesalahan selama registrasi:", error);
+    }
+  }
+
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <div>
         <section className="bg-gray-100 min-h-screen flex items-center justify-center">
           {/* Login Container */}
@@ -21,31 +54,24 @@ function Login() {
             <div className="w-1/2 px-8">
               <h2 className="font-bold mb-3 text-teal-500">Login</h2>
 
-              <form className="flex flex-col gap-4">
+              <form className="flex flex-col gap-4 " onSubmit={login}>
                 <input
                   type="text"
                   name="email"
                   placeholder="Email"
                   className="p-2 mt-8 rounded-xl border"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
-                <div className="relative">
+                <div className="">
                   <input
                     type="password"
                     name="password"
                     placeholder="Password"
                     className="p-2 rounded-xl border w-full"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                   />
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="gray"
-                    className="bi bi-eye absolute top-1/2 right-3 -translate-y-1/2"
-                    viewBox="0 0 16 16"
-                  >
-                    <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
-                    <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
-                  </svg>
                 </div>
 
                 <button
@@ -83,9 +109,7 @@ function Login() {
                 <span className="">Don't have any account?</span>
                 <button
                   className="py-2 px-5 bg-white border rounded-xl hover:scale-110 duration-300"
-                  onClick={() => {
-                    navigate("/register");
-                  }}
+                  type="submit"
                 >
                   Register
                 </button>
@@ -94,10 +118,7 @@ function Login() {
 
             {/* Image Right Section */}
             <div className="w-1/2 ">
-              <img
-                src={require("../Assets/img/safar.jpg")}
-                className="rounded-2xl"
-              />
+              <img src={SafarImage} className="rounded-2xl" alt="image" />
             </div>
           </div>
           {/* Login Container */}

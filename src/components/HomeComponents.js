@@ -16,7 +16,7 @@ function HomeComponent() {
       <section className="bg-hijau min-h-screen flex items-center">
         <div className="container mx-auto px-4">
           <div className="text-4xl font-title mt-6 text-white text-center">
-            MEET OUR BEST MENU
+            MEET OUR BEST RECIPE
           </div>
           <div className="flex flex-wrap">
             <div className="lg:pt-6 pt-6 w-full md:w-4/12 px-4 text-center">

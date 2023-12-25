@@ -23,13 +23,13 @@ function Navbar() {
 
   return (
     <div className="relative">
-      <nav className=" flex flex-col sm:flex-row sm:text-left sm:justify-between p-4 bg-krem sm:items-baseline w-full shadow-xl ">
+      <nav className=" flex flex-col sm:flex-row sm:text-left sm:justify-between p-4 bg-krem sm:items-baseline w-full h-14 ">
         <div className="mb-2 sm:mb-0">
           <a
             href="#"
-            className="text-2xl no-underline text-gray-600 hover:text-teal-500 font-bold"
+            className="ps-14 text-xl no-underline text-black-600 hover:text-teal-500 font-bold"
           >
-            Home
+            Ala-Rumah
           </a>
         </div>
 
@@ -38,25 +38,25 @@ function Navbar() {
             <>
               <a
                 href="/updateproduct"
-                className="text-xl no-underline text-gray-600 hover:text-teal-500 font-bold"
+                className="text-md no-underline text-black-600 hover:text-teal-500 font-bold"
               >
                 Categories
               </a>
               <a
                 href="/addproduct"
-                className="text-xl no-underline text-gray-600 hover:text-teal-500 font-bold"
+                className="text-md no-underline text-gray-600 hover:text-teal-500 font-bold"
               >
                 Add Product
               </a>
               <a
                 href="/updateproduct"
-                className="text-xl no-underline text-gray-600 hover:text-teal-500 font-bold"
+                className="text-md no-underline text-gray-600 hover:text-teal-500 font-bold"
               >
                 Update Product
               </a>
               <a
                 href="/updateproduct"
-                className="text-xl no-underline text-gray-600 hover:text-teal-500 font-bold"
+                className="text-md no-underline text-gray-600 hover:text-teal-500 font-bold"
               >
                 Features
               </a>
@@ -65,13 +65,13 @@ function Navbar() {
             <>
               <a
                 href="/register"
-                className="text-xl no-underline text-gray-600 hover:text-teal-500 font-bold"
+                className="text-md no-underline text-gray-600 hover:text-teal-500 font-bold"
               >
                 Register
               </a>
               <a
                 href="/"
-                className="text-xl no-underline text-gray-600 hover:text-teal-500 font-bold"
+                className="text-md no-underline text-gray-600 hover:text-teal-500 font-bold"
               >
                 Login
               </a>

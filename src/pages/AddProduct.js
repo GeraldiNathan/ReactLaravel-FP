@@ -5,10 +5,6 @@ function AddProduct() {
   return (
     <>
       <Navbar />
-
-      <div>
-        <span>Ini adalah halaman add Product</span>
-      </div>
     </>
   );
 }

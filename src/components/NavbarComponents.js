@@ -26,7 +26,7 @@ function Navbar() {
       <nav className=" flex flex-col sm:flex-row sm:text-left sm:justify-between p-4 bg-krem sm:items-baseline w-full h-14 ">
         <div className="mb-2 sm:mb-0">
           <a
-            href="#"
+            href="/home"
             className="ps-14 text-xl no-underline text-black-600 hover:text-teal-500 font-bold"
           >
             Ala-Rumah
@@ -37,26 +37,26 @@ function Navbar() {
           {localStorage.getItem("user-info") ? (
             <>
               <a
-                href="/updateproduct"
+                href="/review"
                 className="text-md no-underline text-black-600 hover:text-teal-500 font-bold"
               >
-                Categories
+                Review
               </a>
               <a
                 href="/addproduct"
-                className="text-md no-underline text-gray-600 hover:text-teal-500 font-bold"
+                className="text-md no-underline text-black-600 hover:text-teal-500 font-bold"
               >
                 Add Product
               </a>
               <a
                 href="/updateproduct"
-                className="text-md no-underline text-gray-600 hover:text-teal-500 font-bold"
+                className="text-md no-underline text-black-600 hover:text-teal-500 font-bold"
               >
                 Update Product
               </a>
               <a
                 href="/updateproduct"
-                className="text-md no-underline text-gray-600 hover:text-teal-500 font-bold"
+                className="text-md no-underline text-black-600 hover:text-teal-500 font-bold"
               >
                 Features
               </a>
@@ -65,13 +65,13 @@ function Navbar() {
             <>
               <a
                 href="/register"
-                className="text-md no-underline text-gray-600 hover:text-teal-500 font-bold"
+                className="text-md no-underline text-black-600 hover:text-teal-500 font-bold"
               >
                 Register
               </a>
               <a
                 href="/"
-                className="text-md no-underline text-gray-600 hover:text-teal-500 font-bold"
+                className="text-md no-underline text-black-600 hover:text-teal-500 font-bold"
               >
                 Login
               </a>
@@ -80,19 +80,19 @@ function Navbar() {
         </div>
 
         {/* Profile */}
-        <div className="relative inline-block text-left">
+        <div className="relative inline-block text-left me-10">
           <div>
             <button
               onClick={toggleProfileDropdown}
               type="button"
-              className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white border shadow-xl border-gray-300 rounded-md hover:bg-gray-50 focus:outline-none focus:ring focus:border-blue-300"
+              className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-black-600 bg-amber-500 border shadow-xl border-white rounded-2xl hover:bg-amber-300 focus:outline-none focus:ring focus:border-blue-300"
               id="options-menu"
               aria-haspopup="true"
               aria-expanded="true"
             >
-              <span className="font-bold">Halo, {userName}</span>
+              <span className="font-semibold text-white ">Halo, {userName}</span>
               <svg
-                className="-mr-1 ml-2 h-5 w-5"
+                className="-mr-1 ml-2 h-5 w-5 text-black"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
@@ -118,21 +118,21 @@ function Navbar() {
                 {/* Dropdown items */}
                 <a
                   href="#"
-                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  className="block px-4 py-2 text-sm text-black-600 hover:bg-amber-100 hover:text-amber-600"
                   role="menuitem"
                 >
                   Profile
                 </a>
                 <a
                   href="#"
-                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  className="block px-4 py-2 text-sm text-black-600 hover:bg-amber-100 hover:text-amber-600"
                   role="menuitem"
                 >
                   Settings
                 </a>
                 <a
                   href="#"
-                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  className="block px-4 py-2 text-sm text-black-600 hover:bg-amber-100 hover:text-amber-600"
                   role="menuitem"
                   onClick={Logout}
                 >

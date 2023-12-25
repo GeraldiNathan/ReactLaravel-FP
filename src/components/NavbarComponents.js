@@ -23,7 +23,7 @@ function Navbar() {
 
   return (
     <div className="relative">
-      <nav className="fixed flex flex-col sm:flex-row sm:text-left sm:justify-between p-4 bg-white sm:items-baseline w-full shadow-xl ">
+      <nav className=" flex flex-col sm:flex-row sm:text-left sm:justify-between p-4 bg-white sm:items-baseline w-full shadow-xl ">
         <div className="mb-2 sm:mb-0">
           <a
             href="#"
@@ -78,7 +78,7 @@ function Navbar() {
               aria-haspopup="true"
               aria-expanded="true"
             >
-              <span>{userName}</span>
+              <span className="font-bold">Halo, {userName}</span>
               <svg
                 className="-mr-1 ml-2 h-5 w-5"
                 xmlns="http://www.w3.org/2000/svg"

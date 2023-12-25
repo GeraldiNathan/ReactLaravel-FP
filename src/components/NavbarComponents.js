@@ -26,7 +26,7 @@ function Navbar() {
       <nav className=" flex flex-col sm:flex-row sm:text-left sm:justify-between p-4 bg-krem sm:items-baseline w-full shadow-xl ">
         <div className="mb-2 sm:mb-0">
           <a
-            href="#"
+            href="/home"
             className="text-2xl no-underline text-gray-600 hover:text-teal-500 font-bold"
           >
             Home

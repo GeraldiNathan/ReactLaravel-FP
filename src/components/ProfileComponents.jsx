@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useRef, useEffect } from "react";
 import { Icon } from '@iconify/react';
 import { useNavigate } from "react-router-dom";
-import Navbar from "../components/NavbarComponents";
+import Navbar from "./NavbarComponents";
 
 function ProfileComponent() {
   let user = JSON.parse(localStorage.getItem("user-info"));

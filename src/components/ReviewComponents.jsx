@@ -12,7 +12,6 @@ const RecipeList = () => {
         const response = await fetch("http://127.0.0.1:8000/api/posts");
         const data = await response.json();
 
-        // Remove "public" from file_path in each recipe
         const updatedRecipes = data.map((recipe) => ({
           ...recipe,
           file_path: recipe.file_path.replace("public/", ""),

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Navbar from "../components/NavbarComponents";
 import SafarImage from "../Assets/img/safar.jpg";
 
 function Login() {
@@ -18,8 +17,8 @@ function Login() {
     event.preventDefault();
 
     try {
-      console.warn(email, password);
       let item = { email, password };
+      console.warn(email, password);
 
       let result = await fetch("http://127.0.0.1:8000/api/login", {
         method: "POST",
@@ -29,6 +28,11 @@ function Login() {
           Accept: "application/json",
         },
       });
+
+      if (!email || !password) {
+        alert("Field tidak boleh kosong");
+        return;
+      }
 
       if (!result.ok) {
         throw new Error(`Kesalahan HTTP! Status: ${result.status}`);
@@ -79,6 +83,7 @@ function Login() {
                   onClick={() => {
                     navigate("/");
                   }}
+                  type="submit"
                 >
                   Login
                 </button>

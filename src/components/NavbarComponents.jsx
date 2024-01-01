@@ -90,7 +90,9 @@ function Navbar() {
               aria-haspopup="true"
               aria-expanded="true"
             >
-              <span className="font-semibold text-white ">Halo, {userName}</span>
+              <span className="font-semibold text-white ">
+                Halo, {userName}
+              </span>
               <svg
                 className="-mr-1 ml-2 h-5 w-5 text-black"
                 xmlns="http://www.w3.org/2000/svg"
@@ -117,7 +119,7 @@ function Navbar() {
               <div className="py-1" role="none">
                 {/* Dropdown items */}
                 <a
-                  href="#"
+                  href="/profile"
                   className="block px-4 py-2 text-sm text-black-600 hover:bg-amber-100 hover:text-amber-600"
                   role="menuitem"
                 >
@@ -127,6 +129,7 @@ function Navbar() {
                   href="#"
                   className="block px-4 py-2 text-sm text-black-600 hover:bg-amber-100 hover:text-amber-600"
                   role="menuitem"
+                  onClick={Logout}
                 >
                   Settings
                 </a>

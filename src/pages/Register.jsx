@@ -29,6 +29,11 @@ function Register() {
         },
       });
 
+      if (!name || !email || !password) {
+        alert("Field tidak boleh ada yang kosong");
+        return;
+      }
+
       if (!result.ok) {
         throw new Error(`Kesalahan HTTP! Status: ${result.status}`);
       }

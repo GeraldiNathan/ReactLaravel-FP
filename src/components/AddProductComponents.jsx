@@ -1,6 +1,5 @@
-import react from "react";
 import { useState } from "react";
-
+import { json } from "react-router-dom";
 
 function FormCreate() {
   const [title, setTitle] = useState("");
@@ -10,19 +9,29 @@ function FormCreate() {
   async function addProduct() {
     console.warn(title, description, file);
     const formData = new FormData();
-    formData.append('title', title);
-    formData.append('description', description);
-    formData.append('file', file);
+    formData.append("title", title);
+    formData.append("description", description);
+    formData.append("file", file);
 
-    let result = await fetch("http://127.0.0.1:8000/api/recipe",{
-        method: 'POST',
-        body: formData
-    });
-}
+    try {
+      let result = await fetch("http://127.0.0.1:8000/api/recipe", {
+        method: "POST",
+        body: formData,
+      });
+
+      let data = await json();
+      console.log("Respon Server", data);
+
+      console.log(result);
+      alert("Data has been recorded");
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   return (
     <>
-      <form className="max-w-md mx-auto"
-      encType="multipart/form-data" >
+      <form className="max-w-md mx-auto" encType="multipart/form-data">
         <div class="relative z-0 w-full mb-3 group">
           <input
             type="text"

@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../components/NavbarComponents";
 import AdminPage from "../components/AdminComponent";
 
-function UpdateProduct() {
+function ListProduct() {
   return (
     <>
       <Navbar />
@@ -11,4 +11,4 @@ function UpdateProduct() {
   );
 }
 
-export default UpdateProduct;
+export default ListProduct;

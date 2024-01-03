@@ -55,7 +55,7 @@ function Navbar() {
                 Update Product
               </a>
               <a
-                href="/updateproduct"
+                href="/feature"
                 className="text-md no-underline text-black-600 hover:text-primary font-bold"
               >
                 Features

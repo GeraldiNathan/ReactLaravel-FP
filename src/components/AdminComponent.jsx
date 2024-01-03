@@ -13,7 +13,6 @@ function AdminPage() {
         console.log(error);
       }
     }
-
     fetchData();
   }, []);
 

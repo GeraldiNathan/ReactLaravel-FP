@@ -57,7 +57,7 @@ const RecipeCard = ({ title, description, file_path }) => {
       <div className="ms-3 me-3 h-30 rounded-xl">
         <div className="max-w-lg rounded-xl overflow-hidden shadow-xl border border-inherit">
           <img
-            className="w-full h-40"
+            className="w-full h-40 object-contain"
             src={`http://localhost:8000/storage/${file_path}`}
             alt="Image Description"
           />

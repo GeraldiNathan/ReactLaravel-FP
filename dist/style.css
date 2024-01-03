@@ -1382,6 +1382,21 @@ video {
   color: rgb(20 184 166 / var(--tw-text-opacity));
 }
 
+.hover\:text-primary:hover {
+  --tw-text-opacity: 1;
+  color: rgb(251 198 31 / var(--tw-text-opacity));
+}
+
+.hover\:text-orange:hover {
+  --tw-text-opacity: 1;
+  color: rgb(249 138 93 / var(--tw-text-opacity));
+}
+
+.hover\:text-kuning:hover {
+  --tw-text-opacity: 1;
+  color: rgb(255 224 119 / var(--tw-text-opacity));
+}
+
 .focus\:border-blue-300:focus {
   --tw-border-opacity: 1;
   border-color: rgb(147 197 253 / var(--tw-border-opacity));

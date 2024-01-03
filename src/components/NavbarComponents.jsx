@@ -27,7 +27,7 @@ function Navbar() {
         <div className="mb-2 sm:mb-0">
           <a
             href="/home"
-            className="ps-14 text-xl no-underline text-black-600 hover:text-teal-500 font-bold"
+            className="ps-14 text-xl no-underline text-black-600 hover:text-primary font-bold"
           >
             Ala-Rumah
           </a>
@@ -38,25 +38,25 @@ function Navbar() {
             <>
               <a
                 href="/review"
-                className="text-md no-underline text-black-600 hover:text-teal-500 font-bold"
+                className="text-md no-underline text-black-600 hover:text-primary font-bold"
               >
                 Review
               </a>
               <a
                 href="/addproduct"
-                className="text-md no-underline text-black-600 hover:text-teal-500 font-bold"
+                className="text-md no-underline text-black-600 hover:text-primary font-bold"
               >
                 Add Product
               </a>
               <a
                 href="/updateproduct"
-                className="text-md no-underline text-black-600 hover:text-teal-500 font-bold"
+                className="text-md no-underline text-black-600 hover:text-primary font-bold"
               >
                 Update Product
               </a>
               <a
                 href="/updateproduct"
-                className="text-md no-underline text-black-600 hover:text-teal-500 font-bold"
+                className="text-md no-underline text-black-600 hover:text-primary font-bold"
               >
                 Features
               </a>
@@ -65,13 +65,13 @@ function Navbar() {
             <>
               <a
                 href="/register"
-                className="text-md no-underline text-black-600 hover:text-teal-500 font-bold"
+                className="text-md no-underline text-black-600 hover:text-primary font-bold"
               >
                 Register
               </a>
               <a
                 href="/"
-                className="text-md no-underline text-black-600 hover:text-teal-500 font-bold"
+                className="text-md no-underline text-black-600 hover:text-primary font-bold"
               >
                 Login
               </a>

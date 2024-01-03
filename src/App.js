@@ -7,6 +7,7 @@ import UpdateProduct from "./pages/AdminPage";
 import ReviewPage from "./pages/ReviewPage";
 import Protected from "./Protected";
 import Profile from "./pages/ProfilePage";
+import TeamComponent from "./components/TeamComponent";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           element={<Protected Cmp={UpdateProduct} />}
         />
         <Route path="/profile" element={<Protected Cmp={Profile} />} />
+        <Route path="/aboutus" element={<Protected Cmp={TeamComponent} />} />
       </Routes>
     </div>
   );

@@ -55,10 +55,10 @@ function Navbar() {
                 Update Product
               </a>
               <a
-                href="/feature"
+                href="/aboutus"
                 className="text-md no-underline text-black-600 hover:text-primary font-bold"
               >
-                Features
+                About Us
               </a>
             </>
           ) : (

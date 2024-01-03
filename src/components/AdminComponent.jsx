@@ -4,17 +4,29 @@ function AdminPage() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    async function fetchData() {
-      try {
-        let result = await fetch("http://127.0.0.1:8000/api/recipe");
-        result = await result.json();
-        setData(result);
-      } catch (error) {
-        console.log(error);
-      }
-    }
+    function fetchData() {}
     fetchData();
+    getData();
   }, []);
+
+  async function deleteData(id) {
+    let result = await fetch("http://127.0.0.1:8000/api/recipe/" + id, {
+      method: "DELETE",
+    });
+
+    result = await result.json();
+    getData();
+  }
+
+  async function getData() {
+    try {
+      let result = await fetch("http://127.0.0.1:8000/api/recipe");
+      result = await result.json();
+      setData(result);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <div class="flex flex-col justify-center items-center mt-14">
@@ -87,8 +99,9 @@ function AdminPage() {
 
                     <td class="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
                       <button
-                        type="button"
-                        class="inline-flex items-center gap-x-2 p-2 text-sm font-semibold rounded-lg border border-red-500 text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-red-500 dark:hover:text-red-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
+                        onClick={() => deleteData(data.id)}
+                        type="submit"
+                        class="inline-flex items-center gap-x-2 p-2 text-sm font-semibold rounded-lg border border-red-500 text-red-600 hover:text-red-800 disabled:opacity-50 disabled:pointer-events-none dark:text-red-500 dark:hover:text-red-700 dark:focus:outline-none dark:active:text-red-400"
                       >
                         Delete
                       </button>

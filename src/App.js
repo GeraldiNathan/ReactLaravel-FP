@@ -3,7 +3,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
 import AddProduct from "./pages/AddProduct";
-import UpdateProduct from "./pages/UpdateProduct";
+import UpdateProduct from "./pages/AdminPage";
 import ReviewPage from "./pages/ReviewPage";
 import Protected from "./Protected";
 import Profile from "./pages/ProfilePage";

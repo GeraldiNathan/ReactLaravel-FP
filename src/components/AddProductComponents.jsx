@@ -11,7 +11,7 @@ function FormCreate() {
     const formData = new FormData();
     formData.append("title", title);
     formData.append("description", description);
-    formData.append("file", file);
+    formData.append("file_path", file);
 
     try {
       let result = await fetch("http://127.0.0.1:8000/api/recipe", {

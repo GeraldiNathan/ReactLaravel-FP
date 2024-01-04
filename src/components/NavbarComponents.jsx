@@ -62,6 +62,12 @@ function Navbar() {
                 Update Product
               </a>
               <a
+                href="/search"
+                className="text-md no-underline text-black-600 hover:text-primary font-bold"
+              >
+                Search Product
+              </a>
+              <a
                 href="/aboutus"
                 className="text-md no-underline text-black-600 hover:text-primary font-bold"
               >
@@ -159,4 +165,3 @@ function Navbar() {
 }
 
 export default Navbar;
-

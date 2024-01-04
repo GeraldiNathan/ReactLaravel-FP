@@ -9,6 +9,7 @@ import Profile from "./pages/ProfilePage";
 import TeamComponent from "./components/TeamComponent";
 import ListProduct from "./pages/AdminPage";
 import UpdatePage from "./pages/UpdatePage";
+import SearchPage from "./pages/SearchPage";
 
 function App() {
   return (
@@ -18,14 +19,14 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/review" element={<ReviewPage />} />
-
         {/* <Route path="/addproduct" element={<AddProduct />} /> */}
         {/* <Route path="/updateproduct" element={<UpdateProduct />} /> */}
         <Route path="/addproduct" element={<Protected Cmp={AddProduct} />} />
         <Route path="/listproduct" element={<Protected Cmp={ListProduct} />} />
         <Route path="/profile" element={<Protected Cmp={Profile} />} />
         <Route path="/aboutus" element={<Protected Cmp={TeamComponent} />} />
-        <Route path="/update" element={<Protected Cmp={UpdatePage} />} />
+        <Route path="/update" element={<Protected Cmp={UpdatePage} />} />/
+        <Route path="/search" element={<Protected Cmp={SearchPage} />} />/
       </Routes>
     </div>
   );

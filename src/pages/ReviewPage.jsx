@@ -6,10 +6,10 @@ import RecipeList from "../components/ReviewComponents";
 function Review() {
   return (
     <>
-    <div className="bg-backgroundcolor">
-      <Navbar />
-      <RecipeList />
-    </div>
+      <div className="bg-backgroundcolor">
+        <Navbar />
+        <RecipeList />
+      </div>
     </>
   );
 }

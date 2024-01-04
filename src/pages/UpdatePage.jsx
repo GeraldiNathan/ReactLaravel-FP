@@ -6,7 +6,9 @@ function UpdatePage() {
   return (
     <>
       <Navbar />
-      <UpdateComponent />
+      <div>
+        <button>Update Product</button>
+      </div>
     </>
   );
 }

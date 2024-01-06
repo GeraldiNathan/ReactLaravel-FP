@@ -1,18 +1,45 @@
 import React from "react";
-import { useState, useRef, useEffect } from "react";
-import { Icon } from '@iconify/react';
-import { useNavigate } from "react-router-dom";
-import Navbar from "./NavbarComponents";
+import { useState, useRef } from "react";
+import { Icon } from "@iconify/react";
 
 function ProfileComponent() {
-  let user = JSON.parse(localStorage.getItem("user-info"));
-  console.warn(user);
+  // let user = JSON.parse(localStorage.getItem("user-info"));
+  // console.warn(user);
+  // let userName = user ? user.name : "Guest";
 
-  let userName = user ? user.name : "Guest";
-  const [picture, setPicture] = useState(null);
+  // const [picture, setPicture] = useState(
+  //   localStorage.getItem("profile-picture") ||
+  //     "https://via.placeholder.com/150.png?text=webreq"
+  // );
+  // const img = useRef();
+
+  // const handleSaveChange = () => {
+  //   localStorage.setItem("profile-picture", picture);
+  //   alert("Changes saved successfully");
+  // };
+
+  let userr = JSON.parse(localStorage.getItem("user-info"));
+  console.warn(userr);
+  let userName = userr ? userr.name : "Guest";
+
+  const [user, setUser] = useState(() => {
+    const storedUser = JSON.parse(
+      localStorage.getItem("user-info", JSON.stringify()) || {}
+    );
+    return storedUser;
+  });
+
+  const [picture, setPicture] = useState(() => {
+    return user.picture || "https://via.placeholder.com/150.png?text=webreq";
+  });
+
   const img = useRef();
 
-  
+  const handleSaveChange = () => {
+    const updateUser = { ...user, picture };
+    localStorage.setItem("user-info", JSON.stringify(updateUser));
+    alert("Profile has been saved");
+  };
 
   return (
     <>
@@ -26,16 +53,16 @@ function ProfileComponent() {
                     User Profile
                   </span>
                   <ul>
-                    <li href="#" class="mb-2 hover:text-green-500 rounded">
+                    <li href="" class="mb-2 hover:text-green-500 rounded">
                       User Info
                     </li>
-                    <li href="#" class="mb-2 hover:text-green-500 rounded">
+                    <li href="" class="mb-2 hover:text-green-500 rounded">
                       My Recipe
                     </li>
-                    <li href="#" class="mb-2 hover:text-green-500 rounded">
+                    <li href="" class="mb-2 hover:text-green-500 rounded">
                       Favorites
                     </li>
-                    <li href="#" class="mb-2 hover:text-green-500 rounded">
+                    <li href="" class="mb-2 hover:text-green-500 rounded">
                       Notifications
                     </li>
                   </ul>
@@ -59,9 +86,12 @@ function ProfileComponent() {
                         className="bg-hijau p-[2px] rounded-full cursor-pointer"
                         onClick={() => img.current.click()}
                       >
-                        <Icon icon="ic:outline-edit" color={"white"}
+                        <Icon
+                          icon="ic:outline-edit"
+                          color={"white"}
                           width="20px"
-                          height="20px"/>
+                          height="20px"
+                        />
                       </div>
                     </div>
                   </div>
@@ -112,17 +142,16 @@ function ProfileComponent() {
                       </svg>
                     </div>
                   </form>
-                  <div class="mt-6 flex flex-wrap gap-4 justify-center" >
+                  <div class="mt-6 flex flex-wrap gap-4 justify-center">
                     <a
-                  href="#"
-                  class="bg-hijau hover:bg-hijau-600 text-white py-2 px-4 rounded-full"
-                >
-                  Save Changes
-                </a>
+                      onClick={handleSaveChange}
+                      class="bg-hijau hover:bg-hijau-600 text-white py-2 px-4 rounded-full"
+                    >
+                      Save Changes
+                    </a>
+                  </div>
                 </div>
-                
               </div>
-                </div>
             </div>
           </div>
         </div>

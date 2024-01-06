@@ -50,10 +50,10 @@ function Login() {
   return (
     <>
       {/* <Navbar /> */}
-      <div>
-        <section className="bg-gray-100 min-h-screen flex items-center justify-center">
+      <div className="">
+        <section className="bg-white min-h-screen flex items-center justify-center">
           {/* Login Container */}
-          <div className="bg-gray-300 flex rounded-2xl shadow-lg max-w-3xl p-5">
+          <div className="bg-gradient-to-t from-amber-500 to bg-orange flex rounded-2xl shadow-lg max-w-3xl p-5">
             {/* Form Left Section */}
             <div className="w-1/2 px-8">
               <h2 className="font-bold mb-3 text-teal-500">Login</h2>

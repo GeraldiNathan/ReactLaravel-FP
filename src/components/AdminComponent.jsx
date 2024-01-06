@@ -4,21 +4,48 @@ import ReactPaginate from "react-paginate";
 function AdminPage() {
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
+  const [flashMessage, setFlashMessage] = useState(null);
 
   const itemsPerPage = 3;
   const pageCount = Math.ceil(data.length / itemsPerPage);
 
   useEffect(() => {
     getData();
-  }, []);
+  }, [flashMessage]);
 
   async function deleteData(id) {
-    let result = await fetch("http://127.0.0.1:8000/api/recipe/" + id, {
-      method: "DELETE",
-    });
+    try {
+      let result = await fetch("http://127.0.0.1:8000/api/recipe/" + id, {
+        method: "DELETE",
+      });
 
-    result = await result.json();
-    getData();
+      if (result.ok) {
+        const responseData = await result.json();
+        console.log("responseData:", responseData);
+        setFlashMessage({
+          type: "success",
+          message: responseData.nessage || "Data has been deleted",
+        });
+      } else {
+        const errorData = await result.json();
+        setFlashMessage({
+          type: "error",
+          message: errorData.message || "Failed to delete the data",
+        });
+      }
+    } catch (error) {
+      console.log(error);
+      setFlashMessage({
+        type: "error",
+        message: "An error occured while deleting data",
+      });
+    } finally {
+      getData();
+
+      setTimeout(() => {
+        setFlashMessage(null);
+      }, 780); //780 refers to second or how long the message will pop up
+    }
   }
 
   async function getData() {
@@ -40,6 +67,17 @@ function AdminPage() {
 
   return (
     <div class="flex flex-col justify-center items-center mt-14">
+      {/* Flash Message */}
+      {flashMessage && (
+        <div
+          className={`fixed left-1/2 transform -translate-x-1/2 z-50 p-4 mb-4 rounded-md ${
+            flashMessage.type === "success" ? "bg-red-500" : "bg-green-500"
+          }`}
+        >
+          {flashMessage.message}
+        </div>
+      )}
+      {/* Flash Message */}
       <div class="-m-1.5 overflow-x-auto">
         <div class="p-1.5 min-w-full inline-block align-middle">
           <div class="overflow-hidden">

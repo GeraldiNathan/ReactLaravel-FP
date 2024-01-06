@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
+import ReactPaginate from "react-paginate";
 
 function AdminPage() {
   const [data, setData] = useState([]);
+  const [currentPage, setCurrentPage] = useState(0);
+
+  const itemsPerPage = 3;
+  const pageCount = Math.ceil(data.length / itemsPerPage);
 
   useEffect(() => {
-    function fetchData() {}
-    fetchData();
     getData();
   }, []);
 
@@ -27,6 +30,13 @@ function AdminPage() {
       console.log(error);
     }
   }
+
+  const handlePageClick = ({ selected }) => {
+    setCurrentPage(selected);
+  };
+
+  const offset = currentPage * itemsPerPage;
+  const currentData = data.slice(offset, offset + itemsPerPage);
 
   return (
     <div class="flex flex-col justify-center items-center mt-14">
@@ -69,7 +79,7 @@ function AdminPage() {
                 </tr>
               </thead>
               <tbody>
-                {data.map((data) => (
+                {currentData.map((data) => (
                   <tr>
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-black dark:text-black">
                       {data.id}
@@ -113,6 +123,27 @@ function AdminPage() {
           </div>
         </div>
       </div>
+      <ReactPaginate
+        previousLabel={"<"}
+        nextLabel={">"}
+        breakLabel={"..."}
+        breakClassName={"break-me"}
+        pageCount={pageCount}
+        marginPagesDisplayed={2}
+        pageRangeDisplayed={5}
+        onPageChange={handlePageClick}
+        containerClassName={
+          "pagination flex justify-center items-center mt-4 gap-4 "
+        }
+        activeClassName={"text-amber-500"}
+        subContainerClassName={"pages pagination"}
+        pageClassName={"ml-2"}
+        previousClassName={
+          "px-3 py-2 border rounded-full bg-amber-500 text-black"
+        }
+        nextClassName={"px-3 py-2 border rounded-full bg-amber-500 text-black"}
+        disabledClassName={"opacity-50 cursor-not-allowed"}
+      />
     </div>
   );
 }

@@ -730,6 +730,10 @@ video {
   margin-bottom: 2rem;
 }
 
+.me-1 {
+  margin-inline-end: 0.25rem;
+}
+
 .me-10 {
   margin-inline-end: 2.5rem;
 }
@@ -900,6 +904,10 @@ video {
 
 .w-6 {
   width: 1.5rem;
+}
+
+.w-96 {
+  width: 24rem;
 }
 
 .w-\[calc\(100\%-2rem\)\] {
@@ -1897,6 +1905,11 @@ video {
   .dark\:hover\:bg-blue-700:hover {
     --tw-bg-opacity: 1;
     background-color: rgb(29 78 216 / var(--tw-bg-opacity));
+  }
+
+  .dark\:hover\:text-black:hover {
+    --tw-text-opacity: 1;
+    color: rgb(0 0 0 / var(--tw-text-opacity));
   }
 
   .dark\:hover\:text-blue-700:hover {

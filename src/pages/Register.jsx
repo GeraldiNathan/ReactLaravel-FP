@@ -52,11 +52,11 @@ function Register() {
     <>
       {/* <Navbar /> */}
       <div>
-        <section className="bg-gray-100 min-h-screen flex items-center  justify-center">
+        <section className="bg-cream min-h-screen flex items-center  justify-center">
           {/* Register Container */}
-          <div className="bg-gray-300 flex rounded-2xl shadow-lg max-w-4xl px-8">
+          <div className="bg-white flex rounded-2xl shadow-xl max-w-4xl px-8">
             <form className="flex flex-col items gap-4 m-12 " onSubmit={signUp}>
-              <span className="flex justify-center font-bold text-teal-500 text-3xl">
+              <span className="flex justify-center font-bold bg-gradient-to-tr from-amber-500 to to-orange bg-clip-text text-transparent text-3xl">
                 Register
               </span>
               <input
@@ -98,7 +98,7 @@ function Register() {
               </div>
 
               <button
-                className="bg-teal-500 rounded-xl text-white py-2 hover:scale-105 duration-300"
+                className="bg-gradient-to-tr from-amber-500 to to-orange rounded-xl text-white py-2 hover:scale-105 duration-300"
                 // onClick={signUp}
                 type="submit"
               >
@@ -113,7 +113,10 @@ function Register() {
 
               <div className="flex flex-row gap-2">
                 <span>Have an existing account?</span>
-                <a href="/" className="font-bold">
+                <a
+                  href="/"
+                  className="font-bold bg-gradient-to-tr from-amber-500 to to-orange bg-clip-text text-transparent"
+                >
                   Login
                 </a>
               </div>

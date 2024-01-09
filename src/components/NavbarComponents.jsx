@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import AddProduct from "../pages/AddProduct";
 
 function Navbar() {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
@@ -54,12 +53,6 @@ function Navbar() {
                 className="text-md no-underline text-black-600 hover:text-primary font-bold"
               >
                 Admin2
-              </a>
-              <a
-                href="/update"
-                className="text-md no-underline text-black-600 hover:text-primary font-bold"
-              >
-                Update Product
               </a>
               <a
                 href="/search"

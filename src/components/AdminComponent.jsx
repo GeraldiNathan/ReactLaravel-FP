@@ -6,12 +6,14 @@ function AdminPage() {
   const [currentPage, setCurrentPage] = useState(0);
   const [flashMessage, setFlashMessage] = useState(null);
   const [updateFlashMessage, setUpdateFlashMessage] = useState(null);
+  const [createFlashMessage, setCreateFlashMessage] = useState(null);
 
   const [formData, setFormData] = useState({
     title: "",
     description: "",
     file_path: null, // Assuming file_path is a file input
   });
+
   const itemsPerPage = 3;
   const pageCount = Math.ceil(data.length / itemsPerPage);
 
@@ -54,6 +56,59 @@ function AdminPage() {
     }
   }
 
+  async function createData(createNewData) {
+    try {
+      const formData = new FormData();
+      formData.append("title", createNewData.title);
+      formData.append("description", createNewData.description);
+
+      if (createNewData.file_path) {
+        formData.append("file_path", createNewData.file_path);
+      }
+
+      let result = await fetch("http://127.0.0.1:8000/api/recipe", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (result.ok) {
+        const responseData = await result.json();
+        setCreateFlashMessage({
+          type: "success",
+          message: responseData.message,
+        });
+      } else {
+        const errorData = await result.json();
+        const errorMessage = "Failed to create data";
+
+        if (errorData.message) {
+          if (typeof errorData.message === "string") {
+            errorMessage = errorData.message;
+          } else if (typeof errorData.message === "object") {
+            errorMessage = JSON.stringify(errorData.message);
+          }
+        }
+
+        setCreateFlashMessage({
+          type: "error",
+          message: errorData.message,
+        });
+      }
+    } catch (error) {
+      console.log(error);
+      setCreateFlashMessage({
+        type: "error",
+        message: "Failed to add new recipe",
+      });
+    } finally {
+      getData();
+
+      setTimeout(() => {
+        setCreateFlashMessage(null);
+      }, 3000);
+    }
+  }
+
   async function updateData(id, formData) {
     try {
       const formPayload = new FormData();
@@ -67,7 +122,7 @@ function AdminPage() {
       }
 
       let result = await fetch(`http://127.0.0.1:8000/api/recipe/` + id, {
-        method: "POST", // Use "PUT" for updating data
+        method: "POST",
         body: formPayload,
       });
 
@@ -76,21 +131,30 @@ function AdminPage() {
         console.log("responseData:", responseData);
         setUpdateFlashMessage({
           type: "success",
-          message: responseData.message || "Data has been updated",
-          color: "green",
+          message: responseData.message,
         });
       } else {
         const errorData = await result.json();
+        const errorMessage = "Failed to update data";
+
+        if (errorData.message) {
+          if (typeof errorData.message === "string") {
+            errorMessage = errorData.message;
+          } else if (typeof errorData.message === "object") {
+            errorMessage = JSON.stringify(errorData.message);
+          }
+        }
+
         setUpdateFlashMessage({
           type: "error",
-          message: errorData.message || "Failed to update the data",
+          message: errorData.message,
         });
       }
     } catch (error) {
       console.log(error);
       setUpdateFlashMessage({
         type: "error",
-        message: "An error occurred while updating data",
+        message: "Failed to update recipe",
       });
     } finally {
       getData();
@@ -162,32 +226,72 @@ function AdminPage() {
       {updateFlashMessage && (
         <div
           className={`fixed left-1/2 transform -translate-x-1/2 z-50 p-4 mb-4 rounded-md ${
-            updateFlashMessage.color === "green"
-              ? "bg-green-100 border border-green-400 text-green-700"
+            updateFlashMessage.type === "success"
+              ? "bg-blue-100 border border-blue-400 text-blue-700"
               : "bg-red-100 border border-red-400 text-red-700"
           }`}
           role="alert"
         >
           <div className="flex items-center justify-between">
-            {" "}
             <div className="flex items-center">
-              {" "}
               <strong className="font-bold">
-                {updateFlashMessage.color === "green" ? "Success! " : "Error!"}
+                {updateFlashMessage.type === "success" ? "Success! " : "Error!"}
               </strong>
               <span className="block sm:inline ml-2">
                 {updateFlashMessage.message}
               </span>
             </div>
-            <span className="ml-4" onClick={() => setUpdateFlashMessage(null)}>
-              {" "}
+            <span
+              className={`ml-4 ${
+                updateFlashMessage.type === "success"
+                  ? "text-red-500"
+                  : "text-red-500"
+              }`}
+              onClick={() => setUpdateFlashMessage(null)}
+              role="button"
+            >
               <svg
-                className={`fill-current h-6 w-6 ${
-                  updateFlashMessage.color === "green"
-                    ? "text-green-500"
-                    : "text-red-500"
-                }`}
-                role="button"
+                className="fill-current h-6 w-6"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+              >
+                <title>Close</title>
+                <path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z" />
+              </svg>
+            </span>
+          </div>
+        </div>
+      )}
+
+      {createFlashMessage && (
+        <div
+          className={`fixed left-1/2 transform -translate-x-1/2 z-50 p-4 mb-4 rounded-md ${
+            createFlashMessage.type === "success"
+              ? "bg-hijau border border-hijau text-black"
+              : "bg-red-100 border border-red-700 text-red-700"
+          }`}
+          role="alert"
+        >
+          <div className="flex items-center justify-between">
+            <div className="flex items-center">
+              <strong className="font-bold">
+                {createFlashMessage.type === "success" ? "Success! " : "Error!"}
+              </strong>
+              <span className="block sm:inline ml-2">
+                {createFlashMessage.message}
+              </span>
+            </div>
+            <span
+              className={`ml-4 ${
+                createFlashMessage.type === "success"
+                  ? "text-red-500"
+                  : "text-red-500"
+              }`}
+              onClick={() => setCreateFlashMessage(null)}
+              role="button"
+            >
+              <svg
+                className="fill-current h-6 w-6"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
               >
@@ -425,6 +529,128 @@ function AdminPage() {
                 ))}
               </tbody>
             </table>
+
+            {/* Create Data Modal */}
+            <div className="w-max p-4">
+              <button
+                className="border rounded-xl p-3 border-hijau text-hijau hover:border-orange hover:text-orange active:bg-orange active:text-hijau"
+                type="button"
+                onClick={() =>
+                  document.getElementById(`create_modal_${data.id}`).showModal()
+                }
+              >
+                Create Data
+              </button>
+              <dialog
+                id={`create_modal_${data.id}`}
+                className="modal rounded-2xl"
+              >
+                <div className="p-28">
+                  <h2 className="text-2xl font-bold mb-4 text-left">
+                    Add New Recipe
+                  </h2>
+                  <div className="mb-6">
+                    <label
+                      htmlFor="recipe_title"
+                      className="block text-sm text-left font-medium text-hijau"
+                    >
+                      title
+                    </label>
+                    <input
+                      type="text"
+                      name="recipe_title"
+                      id="recipe_title"
+                      className="w-full border-b-2 border-hijau focus:outline-none focus:border-hijau"
+                      placeholder="Enter recipe title"
+                      required
+                      value={formData.title}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          title: e.target.value,
+                        })
+                      }
+                    />
+                  </div>
+
+                  <div className="mb-6">
+                    <label
+                      htmlFor="recipe_title"
+                      className="block text-sm text-left font-medium text-hijau"
+                    >
+                      Description
+                    </label>
+                    <textarea
+                      name="recipe_description"
+                      id="recipe_description"
+                      className="w-full border-b-2 border-hijau focus:outline-none focus:border-hijau"
+                      placeholder="Enter recipe description"
+                      required
+                      value={formData.description}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          description: e.target.value,
+                        })
+                      }
+                    ></textarea>
+                  </div>
+
+                  <div className="mb-6">
+                    <label
+                      htmlFor="choose_image"
+                      className="block text-sm text-left font-medium text-hijau"
+                    >
+                      Choose Image
+                    </label>
+                    <input
+                      type="file"
+                      name="file_input"
+                      id="choose_image"
+                      className={`w-full p-2 border-b-2 ${
+                        formData.file_path
+                          ? "border-hijau text-green-700"
+                          : "border-hijau text-red-400"
+                      } focus:outline-none focus:border-hijau`}
+                      required
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          file_path: e.target.files[0],
+                        })
+                      }
+                    />
+                  </div>
+                  <div className="flex justify-end gap-4">
+                    <button
+                      className="px-4 py-2 text-white bg-red-400 rounded hover:bg-red-700 focus:outline-none focus:ring focus:border-blue-300"
+                      onClick={() => {
+                        const modal = document.getElementById(
+                          `create_modal_${data.id}`
+                        );
+                        if (modal) {
+                          modal.close();
+                        }
+                      }}
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      className="px-4 py-2 text-white bg-hijau rounded hover:bg-green-800 focus:outline-none focus:ring focus:border-blue-300"
+                      onClick={() => {
+                        createData(formData);
+                        document
+                          .getElementById(`create_modal_${data.id}`)
+                          .close();
+                      }}
+                    >
+                      Create
+                    </button>
+                  </div>
+                </div>
+              </dialog>
+            </div>
+            {/* Create Data Modal */}
           </div>
         </div>
       </div>

@@ -8,7 +8,6 @@ import Protected from "./Protected";
 import Profile from "./pages/ProfilePage";
 import TeamComponent from "./components/TeamComponent";
 import ListProduct from "./pages/AdminPage";
-import UpdatePage from "./pages/UpdatePage";
 import SearchPage from "./pages/SearchPage";
 
 function App() {
@@ -25,7 +24,6 @@ function App() {
         <Route path="/listproduct" element={<Protected Cmp={ListProduct} />} />
         <Route path="/profile" element={<Protected Cmp={Profile} />} />
         <Route path="/aboutus" element={<Protected Cmp={TeamComponent} />} />
-        <Route path="/update" element={<Protected Cmp={UpdatePage} />} />/
         <Route path="/search" element={<Protected Cmp={SearchPage} />} />/
       </Routes>
     </div>

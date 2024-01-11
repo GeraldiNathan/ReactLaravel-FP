@@ -18,7 +18,6 @@ function Login() {
 
     try {
       let item = { email, password };
-      console.warn(email, password);
 
       let result = await fetch("http://127.0.0.1:8000/api/login", {
         method: "POST",
@@ -51,12 +50,14 @@ function Login() {
     <>
       {/* <Navbar /> */}
       <div className="">
-        <section className="bg-white min-h-screen flex items-center justify-center">
+        <section className="bg-hijau min-h-screen flex items-center justify-center">
           {/* Login Container */}
-          <div className="bg-gradient-to-t from-amber-500 to bg-orange flex rounded-2xl shadow-lg max-w-3xl p-5">
+          <div className="bg-cream flex rounded-2xl shadow-xl max-w-3xl p-5">
             {/* Form Left Section */}
             <div className="w-1/2 px-8">
-              <h2 className="font-bold mb-3 text-teal-500">Login</h2>
+              <h2 className="font-bold mb-3 bg-gradient-to-tr from-amber-500 to to-orange bg-clip-text text-transparent">
+                Login
+              </h2>
 
               <form className="flex flex-col gap-4 " onSubmit={login}>
                 <input
@@ -79,7 +80,7 @@ function Login() {
                 </div>
 
                 <button
-                  className="bg-teal-500 rounded-xl text-white py-2 hover:scale-105 duration-300"
+                  className="bg-gradient-to-bl from-amber-500 to to-orange rounded-xl text-black py-2 hover:scale-105 duration-300"
                   onClick={() => {
                     navigate("/");
                   }}
@@ -95,7 +96,7 @@ function Login() {
                 <hr className="border-black"></hr>
               </div>
 
-              <button className="bg-white border py-2 w-full rounded-xl mt-5 flex justify-center items-center text-sm hover:scale-105 duration-300">
+              <button className="bg-gradient-to-tr from-orange to to-amber-500 border py-2 w-full rounded-xl mt-5 flex justify-center items-center text-sm hover:scale-105 duration-300">
                 Login With Google
               </button>
 
@@ -113,7 +114,7 @@ function Login() {
               <div className="flex flex-row gap-36 mt-4 text-xs">
                 <span className="">Don't have any account?</span>
                 <button
-                  className="py-2 px-5 bg-white border rounded-xl hover:scale-110 duration-300"
+                  className="py-2 px-5 bg-gradient-to-tr from-amber-500 to to-orange border rounded-xl hover:scale-110 duration-300"
                   onClick={() => navigate("/register")}
                 >
                   Register
@@ -123,7 +124,11 @@ function Login() {
 
             {/* Image Right Section */}
             <div className="w-1/2 ">
-              <img src={SafarImage} className="rounded-2xl" alt="image" />
+            <img
+                  src={require("../Assets/img/loginpage.png")}
+                  alt="Gambar 1"
+                  className="2xl drop-shadow-2xl rounded-2xl"
+                />
             </div>
           </div>
           {/* Login Container */}

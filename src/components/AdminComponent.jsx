@@ -278,7 +278,7 @@ function AdminPage() {
                         id={`update_modal_${data.id}`}
                         className="modal rounded-2xl"
                       >
-                        <div className="p-6">
+                        <div className="p-28">
                           <h2 className="text-2xl font-bold mb-4 text-left">
                             Update Recipe
                           </h2>

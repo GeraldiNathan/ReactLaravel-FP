@@ -50,9 +50,9 @@ function Login() {
     <>
       {/* <Navbar /> */}
       <div className="">
-        <section className="bg-cream min-h-screen flex items-center justify-center">
+        <section className="bg-hijau min-h-screen flex items-center justify-center">
           {/* Login Container */}
-          <div className="bg-white flex rounded-2xl shadow-xl max-w-3xl p-5">
+          <div className="bg-cream flex rounded-2xl shadow-xl max-w-3xl p-5">
             {/* Form Left Section */}
             <div className="w-1/2 px-8">
               <h2 className="font-bold mb-3 bg-gradient-to-tr from-amber-500 to to-orange bg-clip-text text-transparent">
@@ -124,7 +124,11 @@ function Login() {
 
             {/* Image Right Section */}
             <div className="w-1/2 ">
-              <img src={SafarImage} className="rounded-2xl" alt="image" />
+            <img
+                  src={require("../Assets/img/loginpage.png")}
+                  alt="Gambar 1"
+                  className="2xl drop-shadow-2xl rounded-2xl"
+                />
             </div>
           </div>
           {/* Login Container */}

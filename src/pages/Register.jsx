@@ -9,7 +9,7 @@ function Register() {
 
   useEffect(() => {
     if (localStorage.getItem("user-info")) {
-      navigate("/addproduct");
+      navigate("/listproduct");
     }
   }, []);
 

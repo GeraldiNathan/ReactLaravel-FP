@@ -12,6 +12,21 @@ function HomeComponent() {
           />
         </div>
       </div>
+      {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path
+          fill="#fff9ef"
+          fill-opacity="1"
+          d="M0,96L80,117.3C160,139,320,181,480,192C640,203,800,181,960,197.3C1120,213,1280,267,1360,293.3L1440,320L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"
+        ></path>
+      </svg>
+
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path
+          fill="#408f65"
+          fill-opacity="1"
+          d="M0,96L80,117.3C160,139,320,181,480,192C640,203,800,181,960,197.3C1120,213,1280,267,1360,293.3L1440,320L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
+        ></path>
+      </svg> */}
 
       <section className="bg-hijau min-h-screen flex items-center">
         <div className="container mx-auto px-4">
@@ -99,7 +114,7 @@ function HomeComponent() {
           </div>
         </div>
       </section>
-      <section className="bg-kuning min-h-screen items-center">
+      <section className="bg-hijau items-center">
         <div className="container mx-auto px-4 pt-12">
           <div className="max-w-2xl bg-cream flex rounded-2xl shadow-xl mr-auto ml-auto mb-3">
             <div className="w-full md:w-5/12 px-4 mr-auto ml-0">
@@ -121,7 +136,6 @@ function HomeComponent() {
               <button
                 type="submit"
                 className="bg-transparent border-orange border-2 text-orange hover:bg-hijau-500 hover:border-hijau hover:text-hijau font-medium rounded-full py-2 px-4 transition-all duration-300"
-                
               >
                 View More
               </button>
@@ -129,7 +143,7 @@ function HomeComponent() {
           </div>
         </div>
         <h3 className="text-3xl mt-8 font-bold leading-normal text-hijau text-center">
-          Why Choose Our <span className="text-orange">Food?</span>
+          <span className="text-orange">Why Choose Our Food?</span>
         </h3>
         <div className="flex flex-wrap ">
           <div className="lg:pt-6 pt-6 w-full md:w-4/12 px-4 text-center">
@@ -145,7 +159,11 @@ function HomeComponent() {
                 />
                 <h6 className="text-hijau text-xl font-semibold">Healthier</h6>
                 <p className="text-orange mt-2 mb-4">
-                Nourish your body with thoughtfully crafted dishes that prioritize wholesome ingredients, fostering a healthier and happier you. Savor the flavors of nutrition without compromising on taste, making every bite a step towards a vibrant and balanced lifestyle.
+                  Nourish your body with thoughtfully crafted dishes that
+                  prioritize wholesome ingredients, fostering a healthier and
+                  happier you. Savor the flavors of nutrition without
+                  compromising on taste, making every bite a step towards a
+                  vibrant and balanced lifestyle.
                 </p>
               </div>
             </div>
@@ -162,9 +180,16 @@ function HomeComponent() {
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                 />
-                <h6 className="text-hijau text-xl font-semibold">Super Taste</h6>
+                <h6 className="text-hijau text-xl font-semibold">
+                  Super Taste
+                </h6>
                 <p className="text-orange mt-2 mb-4">
-                Elevate your taste buds to new heights as you indulge in culinary creations that redefine deliciousness. Each dish is a culinary masterpiece, carefully curated to deliver an extraordinary dining experience. Get ready to savor the extraordinary – where every bite is a celebration of superlative taste and culinary artistry.
+                  Elevate your taste buds to new heights as you indulge in
+                  culinary creations that redefine deliciousness. Each dish is a
+                  culinary masterpiece, carefully curated to deliver an
+                  extraordinary dining experience. Get ready to savor the
+                  extraordinary – where every bite is a celebration of
+                  superlative taste and culinary artistry.
                 </p>
               </div>
             </div>
@@ -181,9 +206,15 @@ function HomeComponent() {
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                 />
-                <h6 className="text-hijau text-xl font-semibold">Best Recipes</h6>
+                <h6 className="text-hijau text-xl font-semibold">
+                  Best Recipes
+                </h6>
                 <p className="text-orange mt-2 mb-4">
-                From timeless classics to innovative creations, each recipe stands as a testament to the pursuit of culinary perfection. Explore a world of gastronomic delight where the 'best' is not just a measure but a commitment to excellence in every flavorful bite.
+                  From timeless classics to innovative creations, each recipe
+                  stands as a testament to the pursuit of culinary perfection.
+                  Explore a world of gastronomic delight where the 'best' is not
+                  just a measure but a commitment to excellence in every
+                  flavorful bite.
                 </p>
               </div>
             </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "./NavbarComponents";
 
-function TeamComponent() {
+function AboutComponent() {
   return (
     <>
       <Navbar />
@@ -18,24 +18,24 @@ function TeamComponent() {
                 </h3>
                 <p className="text-lg leading-relaxed mt-4 mb-4 text-cream text-justify">
                   Welcome to our culinary haven, where the art of nourishment
-                  meets the joy of creating wholesome meals. At Ala-Rumah, we believe in the power of good food to transform
-                  lives. Our passion for crafting nutritious and delicious
-                  recipes stems from a commitment to well-being. Explore a
-                  tapestry of flavors meticulously woven into each recipe,
-                  embracing the essence of health and taste. 
+                  meets the joy of creating wholesome meals. At Ala-Rumah, we
+                  believe in the power of good food to transform lives. Our
+                  passion for crafting nutritious and delicious recipes stems
+                  from a commitment to well-being. Explore a tapestry of flavors
+                  meticulously woven into each recipe, embracing the essence of
+                  health and taste.
                 </p>
                 <p className="text-lg leading-relaxed mt-4 mb-4 text-cream text-justify">
-                Here, we celebrate
-                  the journey toward a balanced and vibrant lifestyle, one
-                  wholesome dish at a time. Meet the faces behind the flavors, a
-                  team dedicated to curating a collection of recipes that not
-                  only tantalize the taste buds but also nourish the body and
-                  soul. Join us on this gastronomic adventure, where every
-                  recipe tells a story of care, creativity, and a love for
-                  living well. At Ala-Rumah, we're not just sharing
-                  recipes; we're weaving a tapestry of well-being. Come, embark
-                  on a culinary journey that goes beyond the plate, shaping a
-                  healthier, happier you.
+                  Here, we celebrate the journey toward a balanced and vibrant
+                  lifestyle, one wholesome dish at a time. Meet the faces behind
+                  the flavors, a team dedicated to curating a collection of
+                  recipes that not only tantalize the taste buds but also
+                  nourish the body and soul. Join us on this gastronomic
+                  adventure, where every recipe tells a story of care,
+                  creativity, and a love for living well. At Ala-Rumah, we're
+                  not just sharing recipes; we're weaving a tapestry of
+                  well-being. Come, embark on a culinary journey that goes
+                  beyond the plate, shaping a healthier, happier you.
                 </p>
               </div>
 
@@ -54,4 +54,4 @@ function TeamComponent() {
   );
 }
 
-export default TeamComponent;
+export default AboutComponent;

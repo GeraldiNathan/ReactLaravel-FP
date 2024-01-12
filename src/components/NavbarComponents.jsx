@@ -42,18 +42,14 @@ function Navbar() {
               >
                 Review
               </a>
+
               <a
                 href="/listproduct"
                 className="text-md no-underline text-black-600 hover:text-hijau font-bold"
               >
                 Admin
               </a>
-              <a
-                href="/search"
-                className="text-md no-underline text-black-600 hover:text-hijau font-bold"
-              >
-                Search Product
-              </a>
+
               <a
                 href="/aboutus"
                 className="text-md no-underline text-black-600 hover:text-hijau font-bold"

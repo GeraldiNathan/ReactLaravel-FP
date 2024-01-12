@@ -6,9 +6,9 @@ import AddProduct from "./pages/AddProduct";
 import ReviewPage from "./pages/ReviewPage";
 import Protected from "./Protected";
 import Profile from "./pages/ProfilePage";
-import TeamComponent from "./components/TeamComponent";
 import ListProduct from "./pages/AdminPage";
 import SearchPage from "./pages/SearchPage";
+import AboutComponent from "./components/AboutComponent";
 
 function App() {
   return (
@@ -23,7 +23,7 @@ function App() {
         <Route path="/addproduct" element={<Protected Cmp={AddProduct} />} />
         <Route path="/listproduct" element={<Protected Cmp={ListProduct} />} />
         <Route path="/profile" element={<Protected Cmp={Profile} />} />
-        <Route path="/aboutus" element={<Protected Cmp={TeamComponent} />} />
+        <Route path="/aboutus" element={<Protected Cmp={AboutComponent} />} />
         <Route path="/search" element={<Protected Cmp={SearchPage} />} />/
       </Routes>
     </div>

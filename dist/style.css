@@ -943,6 +943,26 @@ video {
   width: max-content;
 }
 
+.w-auto {
+  width: auto;
+}
+
+.w-64 {
+  width: 16rem;
+}
+
+.w-80 {
+  width: 20rem;
+}
+
+.w-\[\] {
+  width: ;
+}
+
+.w-\[500px\] {
+  width: 500px;
+}
+
 .min-w-0 {
   min-width: 0px;
 }

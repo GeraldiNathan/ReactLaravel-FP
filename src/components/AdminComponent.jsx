@@ -18,8 +18,23 @@ function AdminPage() {
   const pageCount = Math.ceil(data.length / itemsPerPage);
 
   useEffect(() => {
+    function fetchData() {}
+    fetchData();
     getData();
   }, [flashMessage]);
+
+  async function search(key) {
+    let result;
+
+    if (key.trim() === "") {
+      result = await fetch("http://127.0.0.1:8000/api/recipe");
+    } else {
+      result = await fetch("http://127.0.0.1:8000/api/search/" + key);
+    }
+
+    result = await result.json();
+    setData(result);
+  }
 
   async function deleteData(id) {
     try {
@@ -308,6 +323,17 @@ function AdminPage() {
       <div class="-m-1.5 overflow-x-auto">
         <div class="p-1.5 min-w-full inline-block align-middle">
           <div class="overflow-hidden">
+            {/* Search Bar */}
+            <div className="mb-4 flex justify-center">
+              <input
+                type="text"
+                className="border border-black p-2 rounded-xl w-[500px]"
+                placeholder="Search..."
+                onChange={(e) => search(e.target.value)}
+              />
+            </div>
+            {/* Search Bar */}
+
             <table class="max-w-full ">
               <thead>
                 <tr>

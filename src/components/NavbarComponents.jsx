@@ -27,7 +27,7 @@ function Navbar() {
         <div className="mb-2 sm:mb-0">
           <a
             href="/home"
-            className="ps-14 text-xl no-underline text-black-600 hover:text-primary font-bold"
+            className="ps-14 text-xl no-underline text-black-600 hover:text-hijau font-bold"
           >
             Ala-Rumah
           </a>
@@ -38,31 +38,25 @@ function Navbar() {
             <>
               <a
                 href="/review"
-                className="text-md no-underline text-black-600 hover:text-primary font-bold"
+                className="text-md no-underline text-black-600 hover:text-hijau font-bold"
               >
                 Review
               </a>
               <a
-                href="/addproduct"
-                className="text-md no-underline text-black-600 hover:text-primary font-bold"
-              >
-                Admin1
-              </a>
-              <a
                 href="/listproduct"
-                className="text-md no-underline text-black-600 hover:text-primary font-bold"
+                className="text-md no-underline text-black-600 hover:text-hijau font-bold"
               >
-                Admin2
+                Admin
               </a>
               <a
                 href="/search"
-                className="text-md no-underline text-black-600 hover:text-primary font-bold"
+                className="text-md no-underline text-black-600 hover:text-hijau font-bold"
               >
                 Search Product
               </a>
               <a
                 href="/aboutus"
-                className="text-md no-underline text-black-600 hover:text-primary font-bold"
+                className="text-md no-underline text-black-600 hover:text-hijau font-bold"
               >
                 About Us
               </a>
@@ -71,13 +65,13 @@ function Navbar() {
             <>
               <a
                 href="/register"
-                className="text-md no-underline text-black-600 hover:text-primary font-bold"
+                className="text-md no-underline text-black-600 hover:text-hijau font-bold"
               >
                 Register
               </a>
               <a
                 href="/"
-                className="text-md no-underline text-black-600 hover:text-primary font-bold"
+                className="text-md no-underline text-black-600 hover:text-hijau font-bold"
               >
                 Login
               </a>
@@ -91,7 +85,8 @@ function Navbar() {
             <button
               onClick={toggleProfileDropdown}
               type="button"
-              className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-black-600 bg-amber-500 border shadow-xl border-white rounded-2xl hover:bg-amber-300 focus:outline-none focus:ring focus:border-blue-300"
+              className="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-black-600 bg-hijau border shadow-xl
+               border-white rounded-2xl hover:bg-green-700 focus:outline-none focus:ring focus:border-blue-300"
               id="options-menu"
               aria-haspopup="true"
               aria-expanded="true"
@@ -132,10 +127,9 @@ function Navbar() {
                   Profile
                 </a>
                 <a
-                  href="#"
+                  href="/home"
                   className="block px-4 py-2 text-sm text-black-600 hover:bg-amber-100 hover:text-amber-600"
                   role="menuitem"
-                  onClick={Logout}
                 >
                   Settings
                 </a>

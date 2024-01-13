@@ -22,8 +22,8 @@ function Navbar() {
   // Logout
 
   return (
-    <div className="relative bg-cream">
-      <nav className=" flex flex-col sm:flex-row sm:text-left sm:justify-between p-1 bg-krem sm:items-baseline w-full h-14 ">
+    <div className="relative">
+      <nav className="bg-cream flex flex-col fixed sm:flex-row sm:text-left sm:justify-between p-1 bg-krem sm:items-baseline w-full h-14 z-10">
         <div className="mb-2 sm:mb-0">
           <a
             href="/home"

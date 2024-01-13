@@ -9,7 +9,7 @@ function Register() {
 
   useEffect(() => {
     if (localStorage.getItem("user-info")) {
-      navigate("/addproduct");
+      navigate("/home");
     }
   }, []);
 
@@ -52,9 +52,9 @@ function Register() {
     <>
       {/* <Navbar /> */}
       <div>
-        <section className="bg-cream min-h-screen flex items-center  justify-center">
+        <section className="bg-hijau min-h-screen flex items-center  justify-center">
           {/* Register Container */}
-          <div className="bg-white flex rounded-2xl shadow-xl max-w-4xl px-8">
+          <div className="bg-cream flex rounded-2xl shadow-xl max-w-4xl px-8">
             <form className="flex flex-col items gap-4 m-12 " onSubmit={signUp}>
               <span className="flex justify-center font-bold bg-gradient-to-tr from-amber-500 to to-orange bg-clip-text text-transparent text-3xl">
                 Register

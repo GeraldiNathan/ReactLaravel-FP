@@ -9,7 +9,7 @@ function Login() {
 
   useEffect(() => {
     if (localStorage.getItem("user-info")) {
-      navigate("/addproduct");
+      navigate("/home");
     }
   }, []);
 
@@ -124,11 +124,11 @@ function Login() {
 
             {/* Image Right Section */}
             <div className="w-1/2 ">
-            <img
-                  src={require("../Assets/img/loginpage.png")}
-                  alt="Gambar 1"
-                  className="2xl drop-shadow-2xl rounded-2xl"
-                />
+              <img
+                src={require("../Assets/img/loginpage.png")}
+                alt="Gambar 1"
+                className="2xl drop-shadow-2xl rounded-2xl"
+              />
             </div>
           </div>
           {/* Login Container */}

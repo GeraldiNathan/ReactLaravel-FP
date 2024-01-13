@@ -1,10 +1,10 @@
 import React from "react";
-import TeamComponent from "../components/TeamComponent";
+import AboutComponent from "../components/AboutComponent";
 
 function AboutUsPage() {
   return (
     <>
-      <TeamComponent />
+      <AboutComponent />
     </>
   );
 }

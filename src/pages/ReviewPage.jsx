@@ -8,7 +8,9 @@ function Review() {
     <>
       <div className="bg-backgroundcolor">
         <Navbar />
-        <RecipeList />
+        <div className="mx-72 mt-14 ps-4 pt-3 pb-3  rounded-lg">
+          <RecipeList />
+        </div>
       </div>
     </>
   );

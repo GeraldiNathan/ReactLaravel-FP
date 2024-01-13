@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 const RecipeList = () => {
   const [recipes, setRecipes] = useState([]);
+  const [selectedRecipe, setSelectedRecipe] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -26,61 +27,95 @@ const RecipeList = () => {
     fetchData();
   }, []);
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
+  const openModal = (recipe) => {
+    setSelectedRecipe(recipe);
+  };
+
+  const closeModal = () => {
+    setSelectedRecipe(null);
   };
 
   return (
-    <div className="ms-10 me-10 mt-24">
-      <p className="ps-6 pb-4 text-black text-xl font-bold">Current Food</p>
-      <Slider {...settings}>
-        {recipes.map((recipe) => (
-          <RecipeCard
-            key={recipe.id}
-            title={recipe.title}
-            description={recipe.description}
-            file_path={recipe.file_path}
-          />
-        ))}
-      </Slider>
+    <div className="grid grid-cols-1 sm:grid-cols- md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-5">
+      {recipes.map((recipe) => (
+        <RecipeCard key={recipe.id} {...recipe} openModal={() => openModal(recipe)} />
+      ))}
+
+      {selectedRecipe && <RecipeModal title={selectedRecipe.title} description={selectedRecipe.description} file_path={selectedRecipe.file_path} closeModal={closeModal} />}
     </div>
   );
 };
 
-const RecipeCard = ({ title, description, file_path }) => {
-  return (
-    <>
-      <div className="ms-3 me-3 h-30 rounded-xl">
-        <div className="max-w-lg rounded-xl overflow-hidden shadow-xl border border-inherit">
-          <img
-            className="w-full h-40 object-contain"
-            src={`http://localhost:8000/storage/${file_path}`}
-            alt="Image Description"
-          />
+const limit_text_length = (text, max_words = 9, ellipsis = "...") => {
+  const words = text.split(" ");
+  if (words.length > max_words) {
+    return words.slice(0, max_words).join(" ") + " " + ellipsis;
+  } else {
+    return text;
+  }
+};
 
-          <div className="px-6 py-4 h-44">
-            <div className="font-bold text-xl mb-2">{title}</div>
-            <p className="text-gray-700 text-base">{description}</p>
-          </div>
-          <div className="px-6 pt-4 pb-2 h-15 rounded-b-xl bg-amber-200">
-            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-              #
-            </span>
-            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-              #food
-            </span>
-            <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-              #indonesia
-            </span>
-          </div>
+const RecipeCard = ({ id, title, description, file_path, openModal }) => {
+  return (
+    <div className="relative max-w-sm w-60 h-96 overflow-hidden rounded-3xl drop-shadow-xl transition-transform transform hover:translate-y-[-10px]">
+      <a href="#">
+        <img className="h-48 object-fill w-64 grayscale hover:scale-110 duration-300 hover:grayscale-0" src={`http://localhost:8000/storage/${file_path}`} alt="" />
+      </a>
+      <div className="absolute inset-0 p-3 mt-44 rounded-ss-3xl rounded-b-3xl flex flex-col justify-start shadow-inner border-1 border-gray-400 bg-cream">
+        <a href="#" className="relative z-10">
+          <h5 className="h-10 mb-2 ps-3 text-2xl font-mono font-semibold tracking-tight text-gray-900 dark:text-amber-black ">{title}</h5>
+        </a>
+        <div className="text-balance mb-3 break-words">
+          <p className="mb-4 font-normal ps-3  text-gray-700 dark:text-gray-400 whitespace-normal">{limit_text_length(description)}</p>
         </div>
+        <button
+          onClick={openModal}
+          className="absolute w-28 items-center px-2 ms-24 py-2  bottom-4 text-sm font-medium text-left text-white bg-blue-700 rounded-ee-2xl rounded-ss-2xl hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-amber-500 dark:hover:bg-amber-300 dark:focus:ring-blue-800 drop-shadow-lg "
+        >
+          Read more
+          <svg className="inline rtl:rotate-180 w-3 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+            <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+          </svg>
+        </button>
       </div>
-    </>
+    </div>
   );
 };
+const RecipeModal = ({ title, description, file_path, closeModal }) => {
+  return (
+    <dialog id="my_modal_3" className="fixed inset-0 z-50 overflow-y-auto" open>
+      <div className="flex items-center justify-center min-h-screen">
+        {/* Backdrop */}
+        <div
+          className="fixed inset-0 bg-black bg-opacity-50 backdrop-filter backdrop-blur-sm"
+          onClick={closeModal}
+        ></div>
+
+        {/* Modal */}
+        <div className="modal-box bg-cream rounded-3xl p-6 relative z-10 w-full max-w-md">
+          <img className="w-96 h-72 rounded-3xl mb-4" src={`http://localhost:8000/storage/${file_path}`} alt="" />
+          <h3 className="text-xl font-semibold mb-2">{title}</h3>
+          <div className="overflow-y-auto max-h-60">
+            <p className="mb-4">{description}</p>
+          </div>
+
+          {/* Close Button */}
+          <button
+            onClick={closeModal}
+            className="absolute bottom-4 right-4 w-28 items-center px-2 py-2 text-sm font-medium text-left text-white bg-blue-700 rounded-ee-2xl rounded-ss-2xl hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-amber-500 dark:hover:bg-amber-300 dark:focus:ring-blue-800 drop-shadow-lg"
+          >
+            Close
+            <svg className="inline rtl:rotate-180 w-3 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+              <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </dialog>
+  );
+};
+
+
+
 
 export default RecipeList;

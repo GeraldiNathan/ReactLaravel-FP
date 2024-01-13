@@ -5,18 +5,18 @@ function AboutComponent() {
   return (
     <>
       <Navbar />
-      <section className="bg-orange min-h-screen items-center">
+      <section className="bg-cream min-h-screen items-center">
         <div className="container mx-auto px-4 pt-4">
-          <div className="text-5xl font-bold mt-6 text-white text-center mb-6">
-            ABOUT <span className="text-hijau">US</span>
+          <div className="text-5xl font-bold mt-6 text-hijau text-center mb-6">
+            ABOUT US
           </div>
           <div className="flex flex-wrap">
             <div className="flex flex-wrap items-center ">
               <div className="w-full md:w-5/12 px-4 mr-auto ml-auto">
-                <h3 className="text-4xl mb-2 font-bold leading-normal text-cream">
-                  Our <span className="text-hijau">Story</span>
+                <h3 className="text-4xl mb-2 font-bold leading-normal text-hijau">
+                  Our Story
                 </h3>
-                <p className="text-lg leading-relaxed mt-4 mb-4 text-cream text-justify">
+                <p className="text-lg leading-relaxed mt-4 mb-4 text-hijau text-justify">
                   Welcome to our culinary haven, where the art of nourishment
                   meets the joy of creating wholesome meals. At Ala-Rumah, we
                   believe in the power of good food to transform lives. Our
@@ -25,7 +25,7 @@ function AboutComponent() {
                   meticulously woven into each recipe, embracing the essence of
                   health and taste.
                 </p>
-                <p className="text-lg leading-relaxed mt-4 mb-4 text-cream text-justify">
+                <p className="text-lg leading-relaxed mt-4 mb-4 text-hijau text-justify">
                   Here, we celebrate the journey toward a balanced and vibrant
                   lifestyle, one wholesome dish at a time. Meet the faces behind
                   the flavors, a team dedicated to curating a collection of

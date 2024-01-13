@@ -197,8 +197,19 @@ function AdminPage() {
   const offset = currentPage * itemsPerPage;
   const currentData = data.slice(offset, offset + itemsPerPage);
 
+  // Read More or Less Toggle
+  const [expandedDescription, setExpandedDescription] = useState({});
+
+  const toggleDescription = (id) => {
+    setExpandedDescription((prev) => ({
+      ...prev,
+      [id]: !prev[id],
+    }));
+  };
+  // Read More or Less Toggle
+
   return (
-    <div class="bg-cream  flex flex-col justify-center items-center mt-14">
+    <div class="bg-cream  flex flex-col justify-center items-center min-h-screen relative">
       {/* Flash Message */}
       {flashMessage && (
         <div
@@ -321,10 +332,10 @@ function AdminPage() {
       {/* Flash Message */}
 
       <div class="-m-1.5 overflow-x-auto mt-4">
-        <div class="p-1.5 min-w-full inline-block align-middle">
+        <div class="p-1.5 min-w-full inline-block align-middle overflow-x-auto">
           <div class="overflow-hidden">
             {/* Search Bar */}
-            <div className="mb-4 flex justify-center">
+            <div className="mb-10 mt-4 flex justify-center">
               <input
                 type="text"
                 className="border border-black p-2 rounded-xl w-[500px]"
@@ -379,7 +390,31 @@ function AdminPage() {
                       {data.title}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-black">
-                      {data.description}
+                      {expandedDescription[data.id] ? (
+                        <div>
+                          {data.description}
+                          <span
+                            className="text-blue-500 cursor-pointer"
+                            onClick={() => toggleDescription(data.id)}
+                          >
+                            Read Less
+                          </span>
+                        </div>
+                      ) : (
+                        <div>
+                          {`${data.description.slice(0, 45)}${
+                            data.description.length > 45 ? " ..." : ""
+                          }`}
+                          {data.description.length > 45 && (
+                            <span
+                              className="text-blue-500 hover:text-blue-600 cursor-pointer"
+                              onClick={() => toggleDescription(data.id)}
+                            >
+                              Read More
+                            </span>
+                          )}
+                        </div>
+                      )}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-black">
                       <img
@@ -690,9 +725,7 @@ function AdminPage() {
         marginPagesDisplayed={2}
         pageRangeDisplayed={5}
         onPageChange={handlePageClick}
-        containerClassName={
-          "pagination flex justify-center items-center mt-4 gap-4 "
-        }
+        containerClassName={"flex justify-center items-center mt-4 mb-8 gap-4 "}
         activeClassName={"text-amber-500"}
         subContainerClassName={"pages pagination"}
         pageClassName={"ml-2"}

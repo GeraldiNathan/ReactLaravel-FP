@@ -320,7 +320,7 @@ function AdminPage() {
 
       {/* Flash Message */}
 
-      <div class="-m-1.5 overflow-x-auto">
+      <div class="-m-1.5 overflow-x-auto mt-4">
         <div class="p-1.5 min-w-full inline-block align-middle">
           <div class="overflow-hidden">
             {/* Search Bar */}

@@ -198,7 +198,7 @@ function AdminPage() {
   const currentData = data.slice(offset, offset + itemsPerPage);
 
   return (
-    <div class="flex flex-col justify-center items-center mt-14">
+    <div class="bg-cream  flex flex-col justify-center items-center mt-14">
       {/* Flash Message */}
       {flashMessage && (
         <div
@@ -282,7 +282,7 @@ function AdminPage() {
         <div
           className={`fixed left-1/2 transform -translate-x-1/2 z-50 p-4 mb-4 rounded-md ${
             createFlashMessage.type === "success"
-              ? "bg-hijau border border-hijau text-black"
+              ? "bg-green-400 border border-green-400 text-black"
               : "bg-red-100 border border-red-700 text-red-700"
           }`}
           role="alert"
@@ -334,7 +334,7 @@ function AdminPage() {
             </div>
             {/* Search Bar */}
 
-            <table class="max-w-full ">
+            <table class="max-w-full">
               <thead>
                 <tr>
                   <th
@@ -395,7 +395,7 @@ function AdminPage() {
                     <td className="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
                       <button
                         type="button"
-                        className="inline-flex items-center gap-x-2 p-2 text-sm font-semibold rounded-lg border border-blue-500 text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-700 dark:focus:outline-none dark:active:text-blue-400"
+                        className="inline-flex items-center gap-x-2 p-2 text-sm font-semibold rounded-lg border border-blue-500 text-blue-600 hover:text-blue-800 hover:bg-blue-500 hover:bg-opacity-20 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-700 dark:focus:outline-none dark:active:text-blue-400"
                         onClick={() =>
                           document
                             .getElementById(`update_modal_${data.id}`)
@@ -415,7 +415,7 @@ function AdminPage() {
                           <div className="mb-6">
                             <label
                               htmlFor="recipe_title"
-                              className="block text-sm text-left font-medium text-amber-500 "
+                              className="block text-sm text-left font-medium text-blue-500 "
                             >
                               Title
                             </label>
@@ -423,7 +423,7 @@ function AdminPage() {
                               type="text"
                               name="recipe_title"
                               id="recipe_title"
-                              className="w-full p-2 border-b-2 border-amber-200 focus:outline-none focus:border-amber-500"
+                              className="w-full p-2 border-b-2 border-blue-200 focus:outline-none focus:border-blue-500"
                               placeholder="Enter your recipe title"
                               required
                               value={formData.title}
@@ -438,14 +438,14 @@ function AdminPage() {
                           <div className="mb-6">
                             <label
                               htmlFor="recipe_description"
-                              className="block text-sm font-medium text-amber-500  text-left"
+                              className="block text-sm font-medium text-blue-500  text-left"
                             >
                               Description
                             </label>
                             <textarea
                               name="recipe_description"
                               id="recipe_description"
-                              className="w-full h-20 p-2 border-b-2 border-amber-200 focus:outline-none focus:border-amber-500"
+                              className="w-full h-20 p-2 border-b-2 border-blue-200 focus:outline-none focus:border-blue-500"
                               placeholder="Enter your recipe description"
                               required
                               value={formData.description}
@@ -460,7 +460,7 @@ function AdminPage() {
                           <div className="mb-6">
                             <label
                               htmlFor="choose_image"
-                              className="text-left block text-sm font-medium text-amber-500 "
+                              className="text-left block text-sm font-medium text-blue-500 "
                             >
                               Choose Image
                             </label>
@@ -470,9 +470,9 @@ function AdminPage() {
                               id="choose_image"
                               className={`w-full p-2 border-b-2 ${
                                 formData.file_path
-                                  ? "border-amber-200 text-green-700"
-                                  : "border-amber-200 text-red-400"
-                              } focus:outline-none focus:border-amber-500`}
+                                  ? "border-blue-200 text-green-700"
+                                  : "border-blue-200 text-red-400"
+                              } focus:outline-none focus:border-blue-500`}
                               required
                               onChange={(e) =>
                                 setFormData({
@@ -497,7 +497,7 @@ function AdminPage() {
                               Cancel
                             </button>
                             <button
-                              className="px-4 py-2 text-white bg-amber-400 rounded hover:bg-amber-700 focus:outline-none focus:ring focus:border-blue-300"
+                              className="px-4 py-2 text-white bg-blue-400 rounded hover:bg-blue-700 focus:outline-none focus:ring focus:border-blue-300"
                               onClick={() => {
                                 updateData(data.id, formData);
                                 document
@@ -515,7 +515,7 @@ function AdminPage() {
                     <td className="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
                       <button
                         type="submit"
-                        className="inline-flex items-center gap-x-2 p-2 text-sm font-semibold rounded-lg border border-red-500 text-red-600 hover:text-red-800 disabled:opacity-50 disabled:pointer-events-none dark:text-red-500 dark:hover:text-red-700 dark:focus:outline-none dark:active:text-red-400"
+                        className="inline-flex items-center gap-x-2 p-2 text-sm font-semibold rounded-lg border border-red-500 text-red-600 hover:text-red-800 hover:bg-red-500 hover:bg-opacity-20 disabled:opacity-50 disabled:pointer-events-none dark:text-red-500 dark:hover:text-red-700 dark:focus:outline-none dark:active:text-red-400"
                         onClick={() =>
                           document
                             .getElementById(`delete_modal_${data.id}`)
@@ -559,7 +559,8 @@ function AdminPage() {
             {/* Create Data Modal */}
             <div className="w-max p-4">
               <button
-                className="border rounded-xl p-3 border-hijau text-hijau hover:border-orange hover:text-orange active:bg-orange active:text-hijau"
+                className="border rounded-xl p-3 border-hijau text-hijau hover:border-green-700
+                 hover:text-green-700 hover:bg-green-500 hover:bg-opacity-20 active:bg-hijau active:bg-opacity-25 active:text-hijau"
                 type="button"
                 onClick={() =>
                   document.getElementById(`create_modal_${data.id}`).showModal()
@@ -580,7 +581,7 @@ function AdminPage() {
                       htmlFor="recipe_title"
                       className="block text-sm text-left font-medium text-hijau"
                     >
-                      title
+                      Title
                     </label>
                     <input
                       type="text"

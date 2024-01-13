@@ -6,8 +6,8 @@ function AboutComponent() {
     <>
       <Navbar />
       <section className="bg-cream min-h-screen items-center">
-        <div className="container mx-auto px-4 pt-4">
-          <div className="text-5xl font-bold mt-6 text-hijau text-center mb-6">
+        <div className="container mx-auto px-4 p-8">
+          <div className="text-5xl font-bold mt-6 text-hijau text-center mb-4">
             ABOUT US
           </div>
           <div className="flex flex-wrap">
@@ -39,7 +39,7 @@ function AboutComponent() {
                 </p>
               </div>
 
-              <div className="w-full md:w-4/12 px-4 mr-auto ml-auto">
+              <div className="w-full md:w-4/12 mr-auto ml-auto">
                 <img
                   src={require("../Assets/img/about_us1.jpg")}
                   alt="Gambar 1"

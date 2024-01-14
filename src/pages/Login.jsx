@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import SafarImage from "../Assets/img/safar.jpg";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -34,7 +33,12 @@ function Login() {
       }
 
       if (!result.ok) {
-        throw new Error(`Kesalahan HTTP! Status: ${result.status}`);
+        // const errorResponse = await result.json();
+        if (result.status === 401 || 404) {
+          alert("Email or Password Incorrect!");
+        } else {
+          throw new Error(`HTTP Status : ${result.status}`);
+        }
       }
 
       result = await result.json();

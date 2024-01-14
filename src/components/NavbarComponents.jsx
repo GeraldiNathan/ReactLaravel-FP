@@ -12,6 +12,7 @@ function Navbar() {
   console.warn(user);
 
   let userName = user ? user.name : "Guest";
+  let userEmail = user ? user.email : "Email Guest";
 
   // Logout
   const navigate = useNavigate();
@@ -102,7 +103,7 @@ function Navbar() {
                   {/* Dropdown items */}
                   <div className="flex flex-col justify-start items-start border-b border-hijau mb-2 p-2">
                     <span className="text-lg font-semibold">{userName}</span>
-                    <span className="text-sm">geraldi@gmail.com</span>
+                    <span className="text-sm">{userEmail}</span>
                   </div>
 
                   <div className="block text-sm text-black-600">

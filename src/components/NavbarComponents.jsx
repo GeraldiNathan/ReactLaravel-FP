@@ -102,18 +102,13 @@ function Navbar() {
                 <div className="py-1" role="none">
                   {/* Dropdown items */}
                   <div className="flex flex-col justify-start items-start border-b border-hijau mb-2 p-2">
-                    <span className="text-lg font-semibold">{userName}</span>
+                    <span className="text-lg font-semibold">
+                      <a href="/profile">{userName}</a>
+                    </span>
                     <span className="text-sm">{userEmail}</span>
                   </div>
 
                   <div className="block text-sm text-black-600">
-                    <a
-                      href="/profile"
-                      className="block px-4 py-2 text-sm text-black-600 hover:bg-green-100 hover:text-hijau"
-                      role="menuitem"
-                    >
-                      Profile
-                    </a>
                     <a
                       href="/home"
                       className="block px-4 py-2 text-sm text-black-600 hover:bg-green-100 hover:text-hijau"

@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "./NavbarComponents";
+import FooterComponent from "./FooterComponent";
 
 function AboutComponent() {
   return (
@@ -50,6 +51,7 @@ function AboutComponent() {
           </div>
         </div>
       </section>
+      <FooterComponent />
     </>
   );
 }

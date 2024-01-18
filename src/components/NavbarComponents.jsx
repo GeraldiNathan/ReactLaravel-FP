@@ -87,7 +87,7 @@ function Navbar() {
               aria-expanded={isProfileOpen ? "true" : "false"}
             >
               <img
-                src={require("../Assets/img/ella.JPG")}
+                src={require("../Assets/img/AlaRumahLogo.png")}
                 alt="Avatar"
                 className="object-cover w-full h-full cursor-pointer transform scale-125 rounded-full"
               />

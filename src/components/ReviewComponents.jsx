@@ -133,9 +133,9 @@ const RecipeModal = ({ title, description, file_path, closeModal }) => {
         ></div>
 
         {/* Modal */}
-        <div className="modal-box bg-cream rounded-3xl p-6 relative z-10 w-full max-w-md">
+        <div className="modal-box bg-cream rounded-3xl  p-6 relative z-10 w-full max-w-md">
           <img
-            className="w-96 h-72 rounded-3xl mb-4 object-cover"
+            className="w-full h-72 rounded-3xl mb-4 object-cover"
             src={`http://localhost:8000/storage/${file_path}`}
             alt=""
           />

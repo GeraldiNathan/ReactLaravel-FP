@@ -30,7 +30,7 @@ function AdminPage() {
       result = await fetch("http://127.0.0.1:8000/api/recipe");
     } else {
       result = await fetch("http://127.0.0.1:8000/api/search/" + key);
-    } 
+    }
 
     result = await result.json();
     setData(result);
@@ -345,30 +345,30 @@ function AdminPage() {
             </div>
             {/* Search Bar */}
 
-            <table class="max-w-full">
+            <table class="max-w-full border border-black">
               <thead>
-                <tr>
+                <tr className="border border-black">
                   <th
                     scope="col"
-                    class="px-6 py-3 text-center text-xs font-medium text-black uppercase"
+                    class="px-6 py-3 text-center text-xs font-medium text-black uppercase border border-black"
                   >
                     ID
                   </th>
                   <th
                     scope="col"
-                    class="px-6 py-3 text-center text-xs font-medium text-black uppercase"
+                    class="px-6 py-3 text-center text-xs font-medium text-black uppercase border border-black"
                   >
                     Title
                   </th>
                   <th
                     scope="col"
-                    class="px-6 py-3 text-center text-xs font-medium text-black uppercase"
+                    class="px-6 py-3 text-center text-xs font-medium text-black uppercase border border-black"
                   >
                     Description
                   </th>
                   <th
                     scope="col"
-                    class="px-6 py-3 text-center text-xs font-medium text-black uppercase"
+                    class="px-6 py-3 text-center text-xs font-medium text-black uppercase border border-black"
                   >
                     Path Image
                   </th>
@@ -384,13 +384,13 @@ function AdminPage() {
               <tbody>
                 {currentData.map((data) => (
                   <tr key={data.id}>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-black dark:text-black">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-black dark:text-black border border-black">
                       {data.id}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-black">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-black border border-black">
                       {data.title}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-black">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-black border border-black">
                       {expandedDescription[data.id] ? (
                         <div>
                           {data.description}
@@ -417,7 +417,7 @@ function AdminPage() {
                         </div>
                       )}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-black">
+                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-black border border-black">
                       <img
                         src={
                           "http://127.0.0.1:8000/storage/" +

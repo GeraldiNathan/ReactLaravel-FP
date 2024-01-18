@@ -18,19 +18,19 @@ function FooterComponent() {
                   className="2xl drop-shadow-2xl rounded-2xl"
                 />
               </div>
-              <span className="self-center text-2xl font-semibold text-black">
+              <span className="self-center text-2xl font-semibold text-white">
                 Ala - Rumah
               </span>
             </a>
           </div>
           <div className="col-span-6 text-center md:text-left md:col-span-2">
-            <p className="pb-1 text-lg font-medium text-black">Navigasi</p>
+            <p className="pb-1 text-lg font-medium text-white">Navigasi</p>
             <ul className="space-y-2">
               <li>
                 <a
                   rel="noopener noreferrer"
                   href="#"
-                  className="hover:underline text-black"
+                  className="hover:underline text-white"
                 >
                   Home
                 </a>
@@ -39,7 +39,7 @@ function FooterComponent() {
                 <a
                   rel="noopener noreferrer"
                   href="/review"
-                  className="hover:underline text-black"
+                  className="hover:underline text-white"
                 >
                   Review
                 </a>
@@ -48,7 +48,7 @@ function FooterComponent() {
                 <a
                   rel="noopener noreferrer"
                   href="/aboutus"
-                  className="hover:underline text-black"
+                  className="hover:underline text-white"
                 >
                   About Us
                 </a>
@@ -57,7 +57,7 @@ function FooterComponent() {
                 <a
                   rel="noopener noreferrer"
                   href=""
-                  className="hover:underline text-black"
+                  className="hover:underline text-white"
                 >
                   Our Team
                 </a>
@@ -65,14 +65,14 @@ function FooterComponent() {
             </ul>
           </div>
           <div className="col-span-6 text-center md:text-left md:col-span-2">
-            <p className="pb-1 text-lg font-medium text-black">Follow Us</p>
+            <p className="pb-1 text-lg font-medium text-white">Follow Us</p>
             <ul className="space-y-2">
               <li>
                 <a
                   rel="noopener noreferrer"
                   href="https://www.instagram.com/geraldinathan_"
                   target="_blank"
-                  className="hover:underline text-black"
+                  className="hover:underline text-white"
                 >
                   Instagram
                 </a>
@@ -82,7 +82,7 @@ function FooterComponent() {
                   rel="noopener noreferrer"
                   href="https://www.linkedin.com/in/geraldinathan/"
                   target="_blank"
-                  className="hover:underline text-black"
+                  className="hover:underline text-white"
                 >
                   Linkedin
                 </a>
@@ -92,7 +92,7 @@ function FooterComponent() {
                   rel="noopener noreferrer"
                   href="https://twitter.com/geleriee"
                   target="_blank"
-                  className="hover:underline text-black"
+                  className="hover:underline text-white"
                 >
                   X
                 </a>
@@ -100,12 +100,12 @@ function FooterComponent() {
             </ul>
           </div>
           <div className="col-span-6 text-center md:text-left md:col-span-2">
-            <p className="pb-1 text-lg font-medium text-black">Contact Us</p>
+            <p className="pb-1 text-lg font-medium text-white">Contact Us</p>
             <ul className="space-y-4">
               <li>
                 <a
                   rel="noopener noreferrer"
-                  className="hover:underline text-black"
+                  className="hover:underline text-white"
                 >
                   Jl. Raya Tlogomas No.246, Jawa Timur 65144, Indonesia
                 </a>
@@ -113,7 +113,7 @@ function FooterComponent() {
               <li>
                 <a
                   rel="noopener noreferrer"
-                  className="hover:underline text-black"
+                  className="hover:underline text-white"
                 >
                   +6281213423131
                 </a>
@@ -121,7 +121,7 @@ function FooterComponent() {
               <li>
                 <a
                   rel="noopener noreferrer"
-                  className="hover:underline text-black"
+                  className="hover:underline text-white"
                 >
                   AlaRumah@ala.co.id
                 </a>
@@ -130,7 +130,7 @@ function FooterComponent() {
           </div>
         </div>
         <div className="grid justify-center pt-6 lg:justify-between">
-          <div className="flex flex-col self-center text-sm text-center md:block lg:col-start-1 md:space-x-6 text-black">
+          <div className="flex flex-col self-center text-sm text-center md:block lg:col-start-1 md:space-x-6 text-white">
             <span className="lg:text-xl">
               ©2024 Ala - Rumah. All rights reserved
             </span>
@@ -140,7 +140,7 @@ function FooterComponent() {
               rel="noopener noreferrer"
               href=""
               title="Email"
-              className="flex items-center justify-center w-10 h-10 rounded-full text-gray-900 hover:text-orange"
+              className="flex items-center justify-center w-10 h-10 rounded-full text-white hover:text-orange"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -156,7 +156,7 @@ function FooterComponent() {
               rel="noopener noreferrer"
               href=""
               title="Twitter"
-              className="flex items-center justify-center w-10 h-10 rounded-full  text-gray-900 hover:text-orange"
+              className="flex items-center justify-center w-10 h-10 rounded-full  text-white hover:text-orange"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -172,7 +172,7 @@ function FooterComponent() {
               href="https://github.com/zippweb"
               target="_blank"
               title="GitHub"
-              className="flex items-center justify-center w-10 h-10 rounded-full  text-gray-900 hover:text-orange"
+              className="flex items-center justify-center w-10 h-10 rounded-full  text-white hover:text-orange"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

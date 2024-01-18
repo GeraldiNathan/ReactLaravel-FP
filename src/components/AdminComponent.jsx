@@ -30,7 +30,7 @@ function AdminPage() {
       result = await fetch("http://127.0.0.1:8000/api/recipe");
     } else {
       result = await fetch("http://127.0.0.1:8000/api/search/" + key);
-    }
+    } 
 
     result = await result.json();
     setData(result);
@@ -350,31 +350,32 @@ function AdminPage() {
                 <tr>
                   <th
                     scope="col"
-                    class="px-6 py-3 text-start text-xs font-medium text-black uppercase"
+                    class="px-6 py-3 text-center text-xs font-medium text-black uppercase"
                   >
                     ID
                   </th>
                   <th
                     scope="col"
-                    class="px-6 py-3 text-start text-xs font-medium text-black uppercase"
+                    class="px-6 py-3 text-center text-xs font-medium text-black uppercase"
                   >
                     Title
                   </th>
                   <th
                     scope="col"
-                    class="px-6 py-3 text-start text-xs font-medium text-black uppercase"
+                    class="px-6 py-3 text-center text-xs font-medium text-black uppercase"
                   >
                     Description
                   </th>
                   <th
                     scope="col"
-                    class="px-6 py-3 text-start text-xs font-medium text-black uppercase"
+                    class="px-6 py-3 text-center text-xs font-medium text-black uppercase"
                   >
                     Path Image
                   </th>
                   <th
+                    colSpan={2}
                     scope="col"
-                    class="px-6 py-3 text-end text-xs font-medium text-black uppercase "
+                    class="px-6 py-3 text-center text-xs font-medium text-black uppercase "
                   >
                     Action
                   </th>

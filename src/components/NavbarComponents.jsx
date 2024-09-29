@@ -48,7 +48,7 @@ function Navbar() {
                 href="/listproduct"
                 className="text-md no-underline text-black-600 hover:text-hijau font-bold"
               >
-                Admin
+                Resep
               </a>
 
               <a
